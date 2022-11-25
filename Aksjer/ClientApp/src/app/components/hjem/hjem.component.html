@@ -1,10 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<h1 id="tableLabel">Mine aksjer</h1>
+
+<p>Under finner du aksjebeholdningen din.</p>
+
+
+<p *ngIf="!alleAksjer"><em>Laster inn...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="alleAksjer">
+    <thead>
+    <tr>
+        <th>Aksjenavn</th>
+        <th>Ticker</th>
+        <th>Pris</th>
+        <th>Børs</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let aksje of alleAksjer">
+        <td>{{ aksje.aksjenavn }}</td>
+        <td>{{ aksje.ticker }}</td>
+        <td>{{ aksje.pris }}</td>
+        <td>{{ aksje.boers }}</td>
+    </tr>
+    </tbody>
+</table>
