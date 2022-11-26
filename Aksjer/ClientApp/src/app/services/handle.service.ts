@@ -1,3 +1,27 @@
+import {Injectable} from "@angular/core";
+
+
+@Injectable({
+    providedIn: 'root'
+})
+export class HandleService {
+
+    visHandleAksjerVindu = false;
+    
+    constructor() { }
+
+}
+
+
+
+
+
+
+
+
+///////////////////////////
+
+
 /*
 import { Injectable } from '@angular/core';
 
