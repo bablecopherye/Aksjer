@@ -1,5 +1,5 @@
 import { Component, OnInit} from "@angular/core";
-import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
     selector: 'handle-modal',
@@ -12,28 +12,7 @@ export class HandleModalComponent {
         private modalService: NgbModal
     ) {}
 
-    public closeResult: string;
-
-    open(content) {
-        this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
-            (result) => {
-                this.closeResult = `Closed with: ${result}`;
-            },
-            (reason) => {
-                this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-            },
-        );
+    open(dialogboksen) {
+        this.modalService.open(dialogboksen, { centered: true});
     }
-
-    private getDismissReason(reason: any): string {
-        if (reason === ModalDismissReasons.ESC) {
-            return 'by pressing ESC';
-        } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-            return 'by clicking on a backdrop';
-        } else {
-            return `with: ${reason}`;
-        }
-    }
-
-    
 }
