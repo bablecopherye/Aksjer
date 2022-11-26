@@ -15,6 +15,7 @@ import {AksjebeholdningComponent} from "./components/aksjebeholdning/aksjebehold
 import {BunnlinjeComponent} from "./components/bunnlinje/bunnlinje.component";
 import {LoggInnModalComponent} from "./components/logg-inn-modal/logg-inn-modal.component";
 import {BrukerComponent} from "./components/bruker/bruker.component";
+import {BrukerEndreInfoModalComponent} from "./components/bruker-endre-info-modal/bruker-endre-info-modal.component";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {BrukerComponent} from "./components/bruker/bruker.component";
     AksjebeholdningComponent,
     BunnlinjeComponent,
     BrukerComponent,
-    LoggInnModalComponent
+    LoggInnModalComponent,
+    BrukerEndreInfoModalComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
