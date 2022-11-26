@@ -13,6 +13,7 @@ import {NavMenyComponent} from "./components/nav-meny/nav-meny.component";
 import {OrdrelisteComponent} from "./components/ordreliste/ordreliste.component";
 import {AksjebeholdningComponent} from "./components/aksjebeholdning/aksjebeholdning.component";
 import {BunnlinjeComponent} from "./components/bunnlinje/bunnlinje.component";
+import {ProfilComponent} from "./components/profil/profil.component";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {BunnlinjeComponent} from "./components/bunnlinje/bunnlinje.component";
     NavMenyComponent,
     OrdrelisteComponent,
     AksjebeholdningComponent,
-    BunnlinjeComponent
+    BunnlinjeComponent,
+    ProfilComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -33,6 +35,7 @@ import {BunnlinjeComponent} from "./components/bunnlinje/bunnlinje.component";
       { path: '', component: HjemComponent, pathMatch: 'full' },
       { path: 'aksjebeholdning', component: AksjebeholdningComponent },
       { path: 'ordreliste', component: OrdrelisteComponent },
+      { path: 'profil', component: ProfilComponent },
     ])
   ],
   providers: [AksjeService],
