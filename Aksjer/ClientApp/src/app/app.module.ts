@@ -1,3 +1,4 @@
+// Modules:
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -5,9 +6,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
+// Components:
 import { AppComponent } from './app.component';
 import {HjemComponent} from "./components/hjem/hjem.component";
-import {AksjeService} from "./services/aksje.service";
 import {HandleModalComponent} from "./components/handle-modal/handle-modal.component";
 import {NavMenyComponent} from "./components/nav-meny/nav-meny.component";
 import {OrdrelisteComponent} from "./components/ordreliste/ordreliste.component";
@@ -16,6 +17,10 @@ import {BunnlinjeComponent} from "./components/bunnlinje/bunnlinje.component";
 import {LoggInnModalComponent} from "./components/logg-inn-modal/logg-inn-modal.component";
 import {BrukerComponent} from "./components/bruker/bruker.component";
 import {BrukerEndreInfoModalComponent} from "./components/bruker-endre-info-modal/bruker-endre-info-modal.component";
+
+// Services:
+import {AksjeService} from "./services/aksje.service";
+import {HandleService} from "./services/handle.service";
 
 @NgModule({
   declarations: [
@@ -42,7 +47,7 @@ import {BrukerEndreInfoModalComponent} from "./components/bruker-endre-info-moda
       { path: 'bruker', component: BrukerComponent },
     ])
   ],
-  providers: [AksjeService],
+  providers: [AksjeService, HandleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
