@@ -13,8 +13,8 @@ import {NavMenyComponent} from "./components/nav-meny/nav-meny.component";
 import {OrdrelisteComponent} from "./components/ordreliste/ordreliste.component";
 import {AksjebeholdningComponent} from "./components/aksjebeholdning/aksjebeholdning.component";
 import {BunnlinjeComponent} from "./components/bunnlinje/bunnlinje.component";
-import {ProfilComponent} from "./components/profil/profil.component";
 import {LoggInnModalComponent} from "./components/logg-inn-modal/logg-inn-modal.component";
+import {BrukerComponent} from "./components/bruker/bruker.component";
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import {LoggInnModalComponent} from "./components/logg-inn-modal/logg-inn-modal.
     OrdrelisteComponent,
     AksjebeholdningComponent,
     BunnlinjeComponent,
-    ProfilComponent,
+    BrukerComponent,
     LoggInnModalComponent
   ],
   imports: [
@@ -37,7 +37,7 @@ import {LoggInnModalComponent} from "./components/logg-inn-modal/logg-inn-modal.
       { path: '', component: HjemComponent, pathMatch: 'full' },
       { path: 'aksjebeholdning', component: AksjebeholdningComponent },
       { path: 'ordreliste', component: OrdrelisteComponent },
-      { path: 'profil', component: ProfilComponent },
+      { path: 'bruker', component: BrukerComponent },
     ])
   ],
   providers: [AksjeService],
