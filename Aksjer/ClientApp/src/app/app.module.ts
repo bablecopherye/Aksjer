@@ -12,6 +12,7 @@ import {HandleComponent} from "./components/handle/handle.component";
 import {NavMenyComponent} from "./components/nav-meny/nav-meny.component";
 import {OrdrelisteComponent} from "./components/ordreliste/ordreliste.component";
 import {AksjebeholdningComponent} from "./components/aksjebeholdning/aksjebeholdning.component";
+import {BunnlinjeComponent} from "./components/bunnlinje/bunnlinje.component";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {AksjebeholdningComponent} from "./components/aksjebeholdning/aksjebehold
     HandleComponent,
     NavMenyComponent,
     OrdrelisteComponent,
-    AksjebeholdningComponent
+    AksjebeholdningComponent,
+    BunnlinjeComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

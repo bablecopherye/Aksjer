@@ -10,7 +10,7 @@ import {AksjeService} from "../../services/aksje.service";
 export class HjemComponent implements OnInit {
 
     constructor(private aksjeService: AksjeService) {}
-
+    
     public alleAksjer: Array<IAksje> = [];
     public feilmelding: string = "";
 
