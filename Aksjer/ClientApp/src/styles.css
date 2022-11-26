@@ -1,16 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
 
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
+body {
+    background-image: 
+          linear-gradient(rgba(0, 0, 0, 0.5),
+          rgba(0, 0, 0, 0.5)),
+          url("https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"); 
+    /* Margin bottom by footer height */
+    margin-bottom: 160px;
 }
 
-code {
-  color: #e01a76;
+h1 {
+  color: white;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+p {
+    color: white;
 }
+
+
+
+
+/* Sticky footer styles */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    margin-top: 10%;
+}
+
+
