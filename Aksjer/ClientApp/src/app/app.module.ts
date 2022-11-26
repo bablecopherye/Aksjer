@@ -14,6 +14,7 @@ import {OrdrelisteComponent} from "./components/ordreliste/ordreliste.component"
 import {AksjebeholdningComponent} from "./components/aksjebeholdning/aksjebeholdning.component";
 import {BunnlinjeComponent} from "./components/bunnlinje/bunnlinje.component";
 import {ProfilComponent} from "./components/profil/profil.component";
+import {LoggInnModalComponent} from "./components/logg-inn-modal/logg-inn-modal.component";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {ProfilComponent} from "./components/profil/profil.component";
     OrdrelisteComponent,
     AksjebeholdningComponent,
     BunnlinjeComponent,
-    ProfilComponent
+    ProfilComponent,
+    LoggInnModalComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
