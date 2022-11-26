@@ -1,25 +1,6 @@
-<h1 id="tableLabel">Mine aksjer</h1>
-
-<p>Under finner du aksjebeholdningen din.</p>
+<h1>Aktuelle aksjer</h1>
 
 
-<p *ngIf="!alleAksjer"><em>Laster inn...</em></p>
+// Logg inn for å handle aksjer på denne plattformen.
 
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="alleAksjer">
-    <thead>
-    <tr>
-        <th>Aksjenavn</th>
-        <th>Ticker</th>
-        <th>Pris</th>
-        <th>Børs</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let aksje of alleAksjer">
-        <td>{{ aksje.aksjenavn }}</td>
-        <td>{{ aksje.ticker }}</td>
-        <td>{{ aksje.pris }}</td>
-        <td>{{ aksje.boers }}</td>
-    </tr>
-    </tbody>
-</table>
+// Visning av aksjene i hver sin rubrikk
