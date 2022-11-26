@@ -1,6 +1,7 @@
 import { Component, OnInit} from "@angular/core";
 import { IAksje } from "src/app/models/aksje";
 import {AksjeService} from "../../services/aksje.service";
+import {HandleService} from "../../services/handle.service";
 
 @Component({
     selector: 'hjem',
@@ -9,7 +10,10 @@ import {AksjeService} from "../../services/aksje.service";
 })
 export class HjemComponent implements OnInit {
 
-    constructor(private aksjeService: AksjeService) {}
+    constructor(
+        private aksjeService: AksjeService,
+        // private handleService: HandleService
+    ) {}
     
     public alleAksjer: Array<IAksje> = [];
     public feilmelding: string = "";
