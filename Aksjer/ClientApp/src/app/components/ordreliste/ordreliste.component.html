@@ -1,26 +1,40 @@
-<h1 id="tableLabel">Ordreliste</h1>
+<div class="container">
+    <h1 id="tableLabel">Ordreliste</h1>
 
-<p>Under finner du alle dine gjennomførte ordre, herunder kjøp og salg av aksjer.</p>
+    <br/>
 
+    <p>Under finner du en liste over alle kjøp og salg av aksjer som er blitt gjort med denne kontoen. Listen er sortert
+        i synkende rekkefølge, med den nyligste ordren øverst og den eldste ordren nederst.</p>
 
-<p *ngIf="!alleAksjer"><em>Laster inn...</em></p>
+    <p>Ønsker du å kjøpe flere aksjer kan du navigere til "Aksjer"-siden ved hjelp av navigasjonsmenyen på toppen.</p>
 
-<table class='table table-striped table-hover' aria-labelledby="tableLabel" *ngIf="alleAksjer">
-    <thead>
-    <tr>
-        <th>Aksjenavn</th>
-        <th>Ticker</th>
-        <th>Pris</th>
-        <th>Børs</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let aksje of alleAksjer">
-        <td>{{ aksje.aksjenavn }}</td>
-        <td>{{ aksje.ticker }}</td>
-        <td>{{ aksje.markedspris }}</td>
-        <td>{{ aksje.boers }}</td>
-    </tr>
-    </tbody>
-</table>
+    <br/>
 
+    <p *ngIf="!alleAksjer"><em>Laster inn...</em></p>
+
+    <table class='table table-light table-striped table-hover' aria-labelledby="tableLabel" *ngIf="alleAksjer">
+        <thead>
+        <tr>
+            <th>Aksjenavn</th>
+            <th>Ticker</th>
+            <th>Pris</th>
+            <th>Børs</th>
+            <th>Kjøp/Selg</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let aksje of alleAksjer">
+            <td>{{ aksje.aksjenavn }}</td>
+            <td>{{ aksje.ticker }}</td>
+            <td>{{ aksje.markedspris }}</td>
+            <td>
+                <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + 'a/a4/Flag_of_the_United_States.svg'" class="me-2" style="width: 20px"/>
+                {{ aksje.boers }}
+            </td>
+            <td><handle-modal></handle-modal></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- putt inn: landets.flagg eller liknende der andre del av lenken nå står -->
+</div>
