@@ -8,7 +8,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AppComponent } from './app.component';
 import {HjemComponent} from "./components/hjem/hjem.component";
 import {AksjeService} from "./services/aksje.service";
-import {HandleComponent} from "./components/handle/handle.component";
+import {HandleModalComponent} from "./components/handle-modal/handle-modal.component";
 import {NavMenyComponent} from "./components/nav-meny/nav-meny.component";
 import {OrdrelisteComponent} from "./components/ordreliste/ordreliste.component";
 import {AksjebeholdningComponent} from "./components/aksjebeholdning/aksjebeholdning.component";
@@ -18,7 +18,7 @@ import {BunnlinjeComponent} from "./components/bunnlinje/bunnlinje.component";
   declarations: [
     AppComponent,
     HjemComponent,
-    HandleComponent,
+    HandleModalComponent,
     NavMenyComponent,
     OrdrelisteComponent,
     AksjebeholdningComponent,

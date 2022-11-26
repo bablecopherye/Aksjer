@@ -2,11 +2,11 @@ import { Component, OnInit} from "@angular/core";
 import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
-    selector: 'handle',
-    templateUrl: './handle.component.html',
-    styleUrls: ['./handle.component.css']
+    selector: 'handle-modal',
+    templateUrl: './handle-modal.component.html',
+    styleUrls: ['./handle-modal.component.css']
 })
-export class HandleComponent {
+export class HandleModalComponent {
 
     constructor(
         private modalService: NgbModal
