@@ -52,7 +52,6 @@ namespace Aksjer.Controllers
                 TotaltAntallAksjer = 8900400,
                 Boers = "Oslo børs"
             };
-
             
             _alleAksjer.Add(aksjeApple);
             _alleAksjer.Add(aksjeMicrosoft);
@@ -60,10 +59,12 @@ namespace Aksjer.Controllers
             _alleAksjer.Add(aksjeCocaCola);
             _alleAksjer.Add(aksjeCocaCola);
             _alleAksjer.Add(aksjeCocaCola);
+            /*
             _alleAksjer.Add(aksjeCocaCola);
             _alleAksjer.Add(aksjeCocaCola);
             _alleAksjer.Add(aksjeCocaCola);
             _alleAksjer.Add(aksjeCocaCola);
+            */
             
 
             return _alleAksjer;
