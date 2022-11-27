@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Stock_trading_2.Models
+namespace Aksjer.Models
 {
     public class Aksje
     {

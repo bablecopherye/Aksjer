@@ -1,8 +1,9 @@
 ﻿using Stock_trading_2.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Aksjer.Models;
 
-namespace Stock_trading_2.DAL
+namespace Aksjer.DAL
 {
     public interface IAksjeRepository
     {

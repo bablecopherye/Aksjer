@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Stock_trading_2.DAL
+namespace Aksjer.DAL
 {
     public class DBInit
     {

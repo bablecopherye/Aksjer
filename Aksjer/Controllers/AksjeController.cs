@@ -1,18 +1,16 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using Stock_trading_2.DAL;
 using Stock_trading_2.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
-using System.Xml.Linq;
+using Aksjer.DAL;
+using Aksjer.Models;
 
-namespace Stock_trading_2.Controllers
+namespace Aksjer.Controllers
 {
-    [Route("[controller]/[action]")]
+    [Route("api/[controller]")]
+    [ApiController]
     public class AksjeController : ControllerBase
     {
         private readonly IAksjeRepository _db;
@@ -47,6 +45,7 @@ namespace Stock_trading_2.Controllers
 
         }
 
+        [HttpGet]
         public async Task<ActionResult> HentAlle()
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))

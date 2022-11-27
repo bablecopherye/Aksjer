@@ -8,8 +8,9 @@ using System.ComponentModel;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
+using Aksjer.Models;
 
-namespace Stock_trading_2.DAL
+namespace Aksjer.DAL
 {
     public class AksjeRepository : IAksjeRepository
     {
