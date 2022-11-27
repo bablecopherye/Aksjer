@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { NgApexchartsModule } from "ng-apexcharts";
 
 // Components:
 import { AppComponent } from './app.component';
@@ -44,6 +45,7 @@ import {SelgModalComponent} from "./components/selg-modal/selg-modal.component";
     HttpClientModule,
     FormsModule,
     NgbModule,
+    NgApexchartsModule,
     RouterModule.forRoot([
       { path: '', component: HjemComponent, pathMatch: 'full' },
       { path: 'aksjebeholdning', component: AksjebeholdningComponent },
