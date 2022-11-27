@@ -25,11 +25,11 @@
         <tbody>
         <tr *ngFor="let aksje of alleAksjer">
             <td>{{ aksje.aksjenavn }}</td>
-            <td>{{ aksje.ticker }}</td>
-            <td>{{ aksje.markedspris }}</td>
+            <td>{{ aksje.aksjenavn }}</td>
+            <td>{{ aksje.pris }}</td>
             <td>
-                <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + 'a/a4/Flag_of_the_United_States.svg'" class="me-2" style="width: 20px"/>
-                {{ aksje.boers }}
+                <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + 'a/a4/Flag_of_the_United_States.svg'" class="me-2" style="width: 20px" alt="flagg"/>
+                {{ aksje.etternavn }}
             </td>
             <td>ledig felt</td>
         </tr>
