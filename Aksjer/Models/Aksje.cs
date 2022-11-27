@@ -9,7 +9,7 @@ namespace Aksjer.Models
         [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{2,20}$")]
         public string Ticker { get; set; }
 
-        [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{2,20}$")]
+        [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{2,30}$")]
         public string Aksjenavn { get; set; }
 
         [RegularExpression(@"^[0-9.,]{1,20}$")]
@@ -18,10 +18,10 @@ namespace Aksjer.Models
         [RegularExpression(@"^[0-9]{1,20}$")]
         public int Antall { get; set; }
 
-        [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{2,20}$")]
+        [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{2,30}$")]
         public string Bors { get; set; }
 
-        [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{2,20}$")]
+        [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{2,30}$")]
         public string Land { get; set; }
     }
 }
