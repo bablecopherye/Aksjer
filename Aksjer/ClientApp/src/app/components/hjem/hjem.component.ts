@@ -2,6 +2,7 @@ import { Component, OnInit} from "@angular/core";
 import { IAksje } from "src/app/models/aksje";
 import {AksjeService} from "../../services/aksje.service";
 import {HandleService} from "../../services/handle.service";
+import * as moment from 'moment'
 
 @Component({
     selector: 'hjem',
@@ -10,6 +11,13 @@ import {HandleService} from "../../services/handle.service";
 })
 export class HjemComponent implements OnInit {
 
+    idag = moment();
+    
+    hentFormatertDatoOgTid() {
+        console.log(this.idag);
+    }
+    
+    
     constructor(
         private aksjeService: AksjeService,
         // private handleService: HandleService
