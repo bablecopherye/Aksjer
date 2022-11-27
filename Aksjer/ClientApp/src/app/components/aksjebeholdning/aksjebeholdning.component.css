@@ -7,4 +7,12 @@ p {
     color: white;
 }
 
+.kjop-selg-knapper {
+    font-size: 10px;
+}
+
+#kjop-selg-knapper-i-tabellfelt {
+    display: flex;
+    column-gap: 5%;
+}
 
