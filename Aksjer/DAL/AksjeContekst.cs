@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Aksjer.Models;
 
 namespace Aksjer.DAL
 {
@@ -44,7 +45,7 @@ namespace Aksjer.DAL
 
         public DbSet<Aksjer> Aksjer { get; set; }
         public DbSet<Personer> Personer { get; set; }
-        public DbSet<Brukere> Brukere { get; set; }
+        public DbSet<Bruker> Brukere { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
