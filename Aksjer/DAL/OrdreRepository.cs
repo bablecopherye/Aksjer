@@ -1,6 +1,6 @@
 namespace Aksjer.DAL
 {
-    public class OrdreRepository
+    public class OrdreRepository : IOrdreRepository
     {
         
     }

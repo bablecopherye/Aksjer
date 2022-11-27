@@ -1,6 +1,6 @@
 namespace Aksjer.DAL
 {
-    public class AksjebeholdningRepository
+    public class AksjebeholdningRepository : IAksjebeholdningRepository
     {
         
     }

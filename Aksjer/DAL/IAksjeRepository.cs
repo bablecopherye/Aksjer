@@ -11,6 +11,5 @@ namespace Aksjer.DAL
         Task<bool> Slett(int id);
         Task<Aksje> HentEn(int id);
         Task<bool> Endre(Aksje endreAksje);
-        Task<bool> LoggInn(Bruker bruker);
     }
 }
