@@ -16,10 +16,13 @@ export class AksjeService {
     hentAlleAksjer() : Observable<IAksje[]>{
 
         return this.http.get<IAksje[]>(this.urlTilAksjeKlasse)
-            .pipe(catchError(this.feilhaandtering));
+           // .pipe(catchError(this.feilhaandtering));
     }
 
+    /*
     private feilhaandtering(error: HttpErrorResponse){
         return throwError( () => error);
     }
+    
+     */
 }
