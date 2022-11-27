@@ -1,5 +1,6 @@
 using System;
 using Aksjer.DAL;
+using Aksjer.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
@@ -26,6 +27,9 @@ namespace Aksjer
             services.AddControllers();
             services.AddDbContext<AksjeContext>(options => options.UseSqlite("Data source=Aksje.db"));
             services.AddScoped<IAksjeRepository, AksjeRepository>();
+            services.AddScoped<IBrukerRepository, BrukerRepository>();
+            services.AddScoped<IAksjebeholdningRepository, AksjebeholdningRepository>();
+            services.AddScoped<IOrdreRepository, OrdreRepository>();
             services.AddSession(options =>
             {
                 options.Cookie.Name = ".AdventureWorks.Session";
