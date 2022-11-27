@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System;
 
-namespace Stock_trading_2.Models
+namespace Aksjer.Models
 {
     public class Bruker
     {
