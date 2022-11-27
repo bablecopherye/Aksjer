@@ -21,6 +21,8 @@ import {BrukerEndreInfoModalComponent} from "./components/bruker-endre-info-moda
 // Services:
 import {AksjeService} from "./services/aksje.service";
 import {HandleService} from "./services/handle.service";
+import {DiagramComponent} from "./components/diagram/diagram.component";
+import {SelgModalComponent} from "./components/selg-modal/selg-modal.component";
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import {HandleService} from "./services/handle.service";
     BunnlinjeComponent,
     BrukerComponent,
     LoggInnModalComponent,
-    BrukerEndreInfoModalComponent
+    BrukerEndreInfoModalComponent,
+    DiagramComponent,
+    SelgModalComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
