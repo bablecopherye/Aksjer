@@ -11,11 +11,11 @@ export class AksjeService {
 
     constructor(private http: HttpClient) { }
 
-    private url: string = "api/Aksje/"
+    private urlTilAksjeKlasse: string = "api/Aksje/"
 
     hentAlleAksjer() : Observable<IAksje[]>{
 
-        return this.http.get<IAksje[]>(this.url)
+        return this.http.get<IAksje[]>(this.urlTilAksjeKlasse)
             .pipe(catchError(this.feilhaandtering));
     }
 
