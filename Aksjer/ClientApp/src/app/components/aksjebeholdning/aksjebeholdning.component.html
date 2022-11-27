@@ -1,31 +1,65 @@
 <div class="container">
-    <h1>Mine aksjer</h1>
+    <h1 id="tableLabel">Mine Aksjer</h1>
+    
+        <div class="row" >
+            <div class="col-lg-6 col-md-12">
+                <div class="card mt-4 col-md-6 mw-100">
+                    <div class=" card-body">
+                        <div class="d-flex align-items-baseline gap-2">
+                            <i class="ri-apple-fill"></i>
+                            <h4 class="card-title">Verdi på beholdningen</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12">
+                <div class="card mt-4 col-md-6 mw-100">
+                    <div class=" card-body">
+                        <div class="d-flex align-items-baseline gap-2">
+                            <i class="ri-apple-fill"></i>
+                            <h4 class="card-title">Diagram</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    
+    <br/>
+
+    <p *ngIf="!alleAksjer"><em>Laster inn...</em></p>
+
+    <table class='table table-light table-striped table-hover' aria-labelledby="tableLabel" *ngIf="alleAksjer">
+        <thead>
+        <tr>
+            <th>Navn</th>
+            <th>Ant.</th>
+            <th>Kostpris</th>
+            <th>Verdi</th>
+            <th>Profitt</th>
+            <th>Børs</th>
+            <th>Kjøp/Selg</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let aksje of alleAksjer">
+            <td>{{ aksje.aksjenavn }}</td>
+            <td>{{ aksje.totaltAntallAksjer }}</td>
+            <td>{{ aksje.markedspris }}</td>
+            <td>{{ aksje.markedspris }}</td>
+            <td>{{ aksje.markedspris }}</td>
+            <td>
+                <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + 'a/a4/Flag_of_the_United_States.svg'" class="me-2" style="width: 20px"/>
+                {{ aksje.boers }}
+            </td>
+            <td>
+                <handle-modal></handle-modal>
+                <selg-modal></selg-modal>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- putt inn: landets.flagg eller liknende der andre del av lenken nå står -->
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-
-<div id="chart"></div>
-
-<script>
-    const options = {
-    chart: {
-        type: 'line'
-    },
-    series: [{
-        name: 'sales',
-        data: [30,40,35,50,49,60,70,91,125]
-    }],
-    xaxis: {
-        categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
-    }
-}
-
-const chart = new ApexCharts(document.querySelector("#chart"), options);
-
-chart.render();
-</script>
-
-
-
-
-// Visning av dine aksjer med info i hver sin rubrikk, og kjøp/selg-knapp

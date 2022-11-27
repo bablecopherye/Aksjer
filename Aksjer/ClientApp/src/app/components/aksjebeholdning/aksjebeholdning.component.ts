@@ -9,10 +9,25 @@ import {AksjeService} from "../../services/aksje.service";
 })
 export class AksjebeholdningComponent implements OnInit {
 
-    constructor() {}
+    constructor(
+        private aksjeService: AksjeService
+    ) {}
 
+    public alleAksjer: Array<IAksje> = [];
+    public feilmelding: string = "";
 
+    ngOnInit() {
+        this.hentAlleAksjer();
+    }
 
-    ngOnInit() {}
+    hentAlleAksjer() {
+        this.feilmelding = "Serverfeil";
+        this.aksjeService.hentAlleAksjer()
+            .subscribe({
+                next: (data: IAksje[]) => this.alleAksjer = data,
+                error: () => console.error(this.feilmelding),
+                complete: () => console.info('Aksjeinfo er hentet fra server til klient')
+            })
+    }
     
 }
