@@ -5,6 +5,9 @@ namespace Aksjer.Models
     public class Aksje
     {
         public int Id { get; set; }
+        
+        [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{2,20}$")]
+        public string Ticker { get; set; }
 
         [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{2,20}$")]
         public string Aksjenavn { get; set; }
@@ -16,24 +19,9 @@ namespace Aksjer.Models
         public int Antall { get; set; }
 
         [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{2,20}$")]
-        public string Fornavn { get; set; }
+        public string Bors { get; set; }
 
         [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{2,20}$")]
-        public string Etternavn { get; set; }
+        public string Land { get; set; }
     }
 }
-
-/* namespace Aksjer.Models
-{
-    public class Aksje
-    {
-        public int Id { get; set; }
-        public string Aksjenavn { get; set; } = string.Empty;
-        public string Ticker { get; set; } = string.Empty;
-        public double Markedspris { get; set; }
-        public int TotaltAntallAksjer { get; set; }
-        public string Boers { get; set; } = string.Empty;
-    }
-    
-}
-*/

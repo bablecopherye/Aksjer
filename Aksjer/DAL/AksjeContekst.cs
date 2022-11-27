@@ -7,11 +7,16 @@ namespace Aksjer.DAL
     public class Aksjer
     {
         public int Id { get; set; }
+        public string Ticker { get; set; }
         public string Navn { get; set; }
         public double Pris { get; set; }
         public int Antall { get; set; }
+        
+        public string Bors { get; set; }
+        
+        public string Land { get; set; }
 
-        virtual public Personer Person { get; set; }
+        // virtual public Personer Person { get; set; }
     }
 
     public class Personer

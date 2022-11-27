@@ -62,11 +62,12 @@ namespace Aksjer.DAL
                 List<Aksje> alleAksjer = await _db.Aksjer.Select(k => new Aksje
                 {
                     Id = k.Id,
+                    Ticker = k.Ticker,
                     Aksjenavn = k.Navn,
                     Pris = k.Pris,
                     Antall = k.Antall,
-                    Fornavn = k.Person.Fornavn,
-                    Etternavn = k.Person.Etternavn,
+                    Bors = k.Bors,
+                    Land = k.Land,
                 }).ToListAsync();
                 return alleAksjer;
             }
