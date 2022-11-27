@@ -9,7 +9,7 @@ using Aksjer.Models;
 namespace Aksjer.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
+    
     public class AksjeController : ControllerBase
     {
         private readonly IAksjeRepository _db;
@@ -47,10 +47,12 @@ namespace Aksjer.Controllers
         [HttpGet]
         public async Task<ActionResult> HentAlle()
         {
+            /*
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
             {
                 return Unauthorized();
             }
+            */
             List<Aksje> alleAksjer = await _db.HentAlle();
             return Ok(alleAksjer);
         }
