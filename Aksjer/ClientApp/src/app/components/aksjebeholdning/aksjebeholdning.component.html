@@ -6,7 +6,7 @@
                 <div class="card mt-4 col-md-6 mw-100">
                     <div class=" card-body">
                         <div class="d-flex align-items-baseline gap-2">
-                            <h4 class="card-title">Verdi på beholdningen</h4>
+                            <h4 class="card-title">Verdi på aksjebeholdning</h4>
                         </div>
                         <div class="d-flex align-items-baseline gap-2">
                             <h2 class="card-title">NOK 3.000.000</h2>
@@ -18,6 +18,9 @@
             <div class="col-lg-6 col-md-12">
                 <div class="card mt-4 col-md-6 mw-100">
                     <div class=" card-body">
+                        <div class="d-flex align-items-baseline gap-2">
+                            <h4 class="card-title">Din aksjeportefølje består av</h4>
+                        </div>
                         <div id="diagram">
                             <diagram></diagram>
                         </div>
@@ -34,29 +37,29 @@
     <table class='table table-light table-striped table-hover' aria-labelledby="tableLabel" *ngIf="alleAksjer">
         <thead>
         <tr>
-            <th>Navn</th>
-            <th>Ant.</th>
-            <th>Kostpris</th>
-            <th>Verdi</th>
-            <th>Profitt</th>
-            <th>Børs</th>
-            <th>Kjøp/Selg</th>
+            <th class="prioritet-1">Navn</th>
+            <th class="prioritet-1">Ant.</th>
+            <th class="prioritet-2">Kostpris</th>
+            <th class="prioritet-1">Verdi</th>
+            <th class="prioritet-2">Profitt</th>
+            <th class="prioritet-3">Børs</th>
+            <th class="prioritet-3">Kjøp/Selg</th>
         </tr>
         </thead>
         <tbody>
         <tr *ngFor="let aksje of alleAksjer">
-            <td>{{ aksje.aksjenavn }}</td>
-            <td>{{ aksje.antall }}</td>
-            <td>{{ aksje.pris }}</td>
-            <td>{{ aksje.pris }}</td>
-            <td>{{ aksje.pris }}</td>
-            <td>
+            <td class="prioritet-1">{{ aksje.aksjenavn }}</td>
+            <td class="prioritet-1">{{ aksje.antall }}</td>
+            <td class="prioritet-2">{{ aksje.pris }}</td>
+            <td class="prioritet-1">{{ aksje.pris }}</td>
+            <td class="prioritet-2">{{ aksje.pris }}</td>
+            <td class="prioritet-3">
                 <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + 'a/a4/Flag_of_the_United_States.svg'" class="me-2" style="width: 20px" alt="flagg"/>
                 {{ aksje.fornavn }}
             </td>
-            <td id="kjop-selg-knapper-i-tabellfelt">
-                <handle-modal class="kjop-selg-knapper"></handle-modal>
-                <selg-modal class="kjop-selg-knapper"></selg-modal>
+            <td class="prioritet-3" id="kjop-selg-knapper-i-tabellfelt">
+                <handle-modal class="prioritet-3"></handle-modal>
+                <selg-modal class="prioritet-3"></selg-modal>
             </td>
         </tr>
         </tbody>

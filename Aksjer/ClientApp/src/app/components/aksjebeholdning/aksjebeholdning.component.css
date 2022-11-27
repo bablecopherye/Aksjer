@@ -7,12 +7,23 @@ p {
     color: white;
 }
 
-.kjop-selg-knapper {
-    font-size: 10px;
-}
-
 #kjop-selg-knapper-i-tabellfelt {
     display: flex;
     column-gap: 5%;
 }
 
+
+@media screen and (max-width: 1225px) and (min-width: 600px) {
+    .prioritet-3{
+        display:none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .prioritet-3{
+        display:none;
+    }
+    .prioritet-2{
+        display:none;
+    }
+}
