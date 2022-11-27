@@ -199,7 +199,7 @@ namespace Aksjer.Controllers
             _alleAksjer.Add(aksjeCocaCola);
             _alleAksjer.Add(aksjeCocaCola);
             _alleAksjer.Add(aksjeCocaCola);
-            */
+            
 
 
             return _alleAksjer;
