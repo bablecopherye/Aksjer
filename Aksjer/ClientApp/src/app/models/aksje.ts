@@ -5,5 +5,6 @@ export interface IAksje {
     markedspris: number,
     valuta: string,
     totaltAntallAksjer: number,
-    boers: string
+    boers: string,
+    flagg: string
 }
