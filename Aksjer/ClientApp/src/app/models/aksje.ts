@@ -1,10 +1,14 @@
 export interface IAksje {
-    id: number,
+    // id: number,
     aksjenavn: string,
-    ticker: string,
-    markedspris: number,
-    valuta: string,
-    totaltAntallAksjer: number,
-    boers: string,
-    flagg: string
+    // ticker: string,
+    // markedspris: number,
+    pris: number,
+    // valuta: string,
+    // totaltAntallAksjer: number,
+    antall: number,
+    // boers: string,
+    // flagg: string
+    fornavn: string,
+    etternavn: string
 }
