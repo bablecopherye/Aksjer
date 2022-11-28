@@ -6,8 +6,7 @@ namespace Aksjer.Models
 {
     public class Aksje
     {
-        public int Id { get; set; }
-        
+
         [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{2,20}$")]
         public string Ticker { get; set; }
 
@@ -25,7 +24,7 @@ namespace Aksjer.Models
 
         [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{2,30}$")]
         public string Land { get; set; }
-
+/*
         // Bruker Tabel
         [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{2,20}$")]
         public String Brukernavn { get; set; }
@@ -47,5 +46,6 @@ namespace Aksjer.Models
         public List<Ordre> Ordre { get; set; }
 
         public Aksjebeholdning Aksjebeholdning { get; set; }
+        */
     }
 }
