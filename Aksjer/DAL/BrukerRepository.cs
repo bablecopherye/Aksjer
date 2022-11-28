@@ -22,41 +22,6 @@ namespace Aksjer.DAL
             _db = db;
             _log = log;
         }
-
-        /*
-        public async Task<bool> OpprettNyBruker(Bruker innBruker)
-        {
-            try
-            {
-                var nyBrukerRad = new Bruker();
-
-                var sjekkPerson = await _db.Brukere.FindAsync(innBruker.Brukernavn);
-                if (sjekkPerson == null)
-                {
-                    nyBrukerRad.Brukernavn = innBruker.Brukernavn;
-                    nyBrukerRad.Passord = innBruker.Passord;
-                    nyBrukerRad.Fornavn = innBruker.Fornavn;
-                    nyBrukerRad.Etternavn = innBruker.Etternavn;
-                    nyBrukerRad.Saldo = innBruker.Saldo;
-                    nyBrukerRad.Aksjebeholdning = innBruker.Aksjebeholdning;
-                    nyBrukerRad.Ordre = innBruker.Ordre;
-                }
-                else
-                {
-                    _log.LogInformation("Bruker eksisterer allerede");
-                    return false;
-                }
-                _db.Brukere.Add(nyBrukerRad);
-                await _db.SaveChangesAsync();
-                return true;
-            }
-            catch (Exception e)
-            {
-                _log.LogInformation(e.Message);
-                return false;
-            }
-        }
-        */
         
         public async Task<Bruker> HentEnBrukersInfo(string brukernavn)
         {
@@ -116,24 +81,6 @@ namespace Aksjer.DAL
             }
         }
 
-        /*
-        public async Task<bool> SlettBruker(string brukernavn)
-        {
-            try
-            {
-                Bruker enBruker = await _db.Brukere.FindAsync(brukernavn);
-                _db.Brukere.Remove(enBruker);
-                await _db.SaveChangesAsync();
-                return true;
-            }
-            catch (Exception e)
-            {
-                _log.LogInformation(e.Message);
-                return false;
-            }
-        }
-        */
-        
         public static byte[] LagHash(string passord, byte[] salt)
         {
             return KeyDerivation.Pbkdf2(
@@ -172,5 +119,58 @@ namespace Aksjer.DAL
                 return false;
             }
         }
+        
+        /*
+        public async Task<bool> OpprettNyBruker(Bruker innBruker)
+        {
+            try
+            {
+                var nyBrukerRad = new Bruker();
+
+                var sjekkPerson = await _db.Brukere.FindAsync(innBruker.Brukernavn);
+                if (sjekkPerson == null)
+                {
+                    nyBrukerRad.Brukernavn = innBruker.Brukernavn;
+                    nyBrukerRad.Passord = innBruker.Passord;
+                    nyBrukerRad.Fornavn = innBruker.Fornavn;
+                    nyBrukerRad.Etternavn = innBruker.Etternavn;
+                    nyBrukerRad.Saldo = innBruker.Saldo;
+                    nyBrukerRad.Aksjebeholdning = innBruker.Aksjebeholdning;
+                    nyBrukerRad.Ordre = innBruker.Ordre;
+                }
+                else
+                {
+                    _log.LogInformation("Bruker eksisterer allerede");
+                    return false;
+                }
+                _db.Brukere.Add(nyBrukerRad);
+                await _db.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception e)
+            {
+                _log.LogInformation(e.Message);
+                return false;
+            }
+        }
+        */
+        
+        /*
+        public async Task<bool> SlettBruker(string brukernavn)
+        {
+            try
+            {
+                Bruker enBruker = await _db.Brukere.FindAsync(brukernavn);
+                _db.Brukere.Remove(enBruker);
+                await _db.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception e)
+            {
+                _log.LogInformation(e.Message);
+                return false;
+            }
+        }
+        */
     }
 }
