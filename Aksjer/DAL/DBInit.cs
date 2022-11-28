@@ -19,8 +19,8 @@ namespace Aksjer.DAL
                 
                 // Bruker 1: Hans Larsen
                 string passordHansLarsen = "Test11";
-                byte[] saltHansLarsen = AksjeRepository.LagSalt();
-                byte[] hashHansLarsen = AksjeRepository.LagHash(passordHansLarsen, saltHansLarsen);
+                byte[] saltHansLarsen = BrukerRepository.LagSalt();
+                byte[] hashHansLarsen = BrukerRepository.LagHash(passordHansLarsen, saltHansLarsen);
                 
                 var brukerHansLarsen = new Brukere() 
                     {Brukernavn = "tradergutt32", Passord = hashHansLarsen, Salt = saltHansLarsen, 
@@ -30,8 +30,8 @@ namespace Aksjer.DAL
                 
                 // Bruker 2: Monica Ullensaker
                 string passordMonicaUllensaker = "passord";
-                byte[] saltMonicaUllensaker = AksjeRepository.LagSalt();
-                byte[] hashMonicaUllensaken = AksjeRepository.LagHash(passordMonicaUllensaker, saltMonicaUllensaker);
+                byte[] saltMonicaUllensaker = BrukerRepository.LagSalt();
+                byte[] hashMonicaUllensaken = BrukerRepository.LagHash(passordMonicaUllensaker, saltMonicaUllensaker);
                 
                 var brukerMonicaUllensaker = new Brukere() 
                 {Brukernavn = "gulljenta60", Passord = hashMonicaUllensaken, Salt = saltMonicaUllensaker, 
@@ -41,12 +41,12 @@ namespace Aksjer.DAL
                 
 
                 ////// ----- AKSJER ----- //////////////////////////////////////////////////////////////////////////////
-                var aksjeApple = new Aksje() { Id = 1, Ticker = "APPL", Aksjenavn = "Apple", Pris = 450.00, Antall = 15000000, Bors = "New York", Land = "USA"};
-                var aksjeMeta = new Aksje() { Id = 2, Ticker = "META", Aksjenavn = "Meta", Pris = 58.72, Antall = 24310340, Bors = "New York", Land = "USA"};
-                var aksjeEquinor = new Aksje() { Id = 3, Ticker = "EQN", Aksjenavn = "Equinor", Pris = 230.20, Antall = 530050609, Bors = "Oslo Børs", Land = "Norge"};
-                var aksjeIkea = new Aksje() { Id = 4, Ticker = "IKEA", Aksjenavn = "IKEA", Pris = 310.80, Antall = 66750634, Bors = "Stockholm Børs", Land = "Sverige"};
-                var aksjeNovoNordisk = new Aksje() { Id = 5, Ticker = "NOVO", Aksjenavn = "Novo Nordisk", Pris = 890.00, Antall = 50634, Bors = "København Børs", Land = "Danmark"};
-                var aksjeTesla = new Aksje() { Id = 6, Ticker = "TSL", Aksjenavn = "Tesla Inc.", Pris = 770.40, Antall = 912054623, Bors = "San Fran. Børs", Land = "USA"};
+                var aksjeApple = new Aksjer() { Ticker = "APPL", Aksjenavn = "Apple", Pris = 450.00, Antall = 15000000, Bors = "New York", Land = "USA"};
+                var aksjeMeta = new Aksjer() { Ticker = "META", Aksjenavn = "Meta", Pris = 58.72, Antall = 24310340, Bors = "New York", Land = "USA"};
+                var aksjeEquinor = new Aksjer() { Ticker = "EQN", Aksjenavn = "Equinor", Pris = 230.20, Antall = 530050609, Bors = "Oslo Børs", Land = "Norge"};
+                var aksjeIkea = new Aksjer() { Ticker = "IKEA", Aksjenavn = "IKEA", Pris = 310.80, Antall = 66750634, Bors = "Stockholm Børs", Land = "Sverige"};
+                var aksjeNovoNordisk = new Aksjer() { Ticker = "NOVO", Aksjenavn = "Novo Nordisk", Pris = 890.00, Antall = 50634, Bors = "København Børs", Land = "Danmark"};
+                var aksjeTesla = new Aksjer() { Ticker = "TSL", Aksjenavn = "Tesla Inc.", Pris = 770.40, Antall = 912054623, Bors = "San Fran. Børs", Land = "USA"};
                 
                 db.Aksjer.Add(aksjeApple);
                 db.Aksjer.Add(aksjeMeta);
