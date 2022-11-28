@@ -70,7 +70,7 @@ namespace Aksjer.DAL
                 {
                     Id = k.Id,
                     Ticker = k.Ticker,
-                    Aksjenavn = k.Navn,
+                    Aksjenavn = k.Aksjenavn,
                     Pris = k.Pris,
                     Antall = k.Antall,
                     Bors = k.Bors,
