@@ -55,8 +55,6 @@ namespace Aksjer.DAL
                 return false;
             }
         }
-
-        
         
         public async Task<Bruker> HentBruker(string brukernavn)
         {
@@ -111,8 +109,8 @@ namespace Aksjer.DAL
                 return false;
             }
         }
-        
-        public async Task<bool> Slett(int brukernavn)
+
+        public async Task<bool> SlettBruker(string brukernavn)
         {
             try
             {

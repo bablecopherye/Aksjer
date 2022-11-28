@@ -43,7 +43,7 @@ namespace Aksjer.DAL
             Database.EnsureCreated();
         }
 
-        public DbSet<Aksjer> Aksjer { get; set; }
+        public DbSet<Aksje> Aksjer { get; set; }
         public DbSet<Personer> Personer { get; set; }
         public DbSet<Bruker> Brukere { get; set; }
 

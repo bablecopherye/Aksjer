@@ -6,9 +6,9 @@ namespace Aksjer.DAL
     public interface IBrukerRepository
     {
         Task<bool> OpprettNyBruker(Bruker innBruker);
-        Task<Aksje> HentBruker(int id);
-        Task<bool> EndreBrukerinfo(Bruker endreBruker);
-        Task<bool> SlettBruker(int id);
+        Task<Bruker> HentBruker(string innBrukernavn);
+        Task<bool> EndreBrukerinfo(Bruker innNyBrukerinfo);
+        Task<bool> SlettBruker(string brukernavn);
         Task<bool> LoggInn(Bruker bruker);
     }
 }
