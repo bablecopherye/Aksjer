@@ -46,10 +46,11 @@ namespace Aksjer.DAL
                 db.Aksjer.Add(aksjeTesla);
                 
                 ////// ----- TIDLIGERE ORDRE ----- /////////////////////////////////////////////////////////////////////
-                var ordreHansLarsen1 = new Ordre() { 
-                    Id = 1, DatoAar = "2022", DatoMnd = "07", DatoDag = "23", TidTime = "11", TidMinutt = "58", TidSekund = "31", 
-                    Type = "Kjøp", Aksje = aksjeApple, Antall = 400, Pris = 156000, Kunde = "Hans Larsen"};
+                var ordreHansLarsen1 = new Ordrer() { 
+                    DatoAar = "2022", DatoMnd = "07", DatoDag = "23", TidTime = "11", TidMinutt = "58", TidSekund = "31", 
+                    Type = "Kjøp", Antall = 400, Pris = 156000};
                 
+                db.Ordrer.Add(ordreHansLarsen1);
                 
                 ////// ----- AKSJEBEHOLDNING ----- /////////////////////////////////////////////////////////////////////
                 
