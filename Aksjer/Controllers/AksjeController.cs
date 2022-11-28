@@ -23,6 +23,70 @@ namespace Aksjer.Controllers
             _log = log;
         }
 
+        
+
+        [HttpGet]
+        public async Task<ActionResult> HentAlleAksjene()
+        {
+            List<Aksje> alleAksjer = await _db.HentAlleAksjene();
+            return Ok(alleAksjer);
+        }
+
+        
+
+        public async Task<ActionResult> HentEnAksje(string ticker)
+        {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
+            {
+                return Unauthorized();
+            }
+            Aksje enAksje = await _db.HentEnAksje(ticker);
+            if (enAksje == null)
+            {
+                _log.LogInformation("Fant ikke aksjen!");
+                return NotFound("Fant ikke aksjen!");
+            }
+            return Ok(enAksje);
+        }
+
+        public async Task<ActionResult> EndreAntalletTilgjengeligeAksjerIEnAksje(Aksje endreAksje)
+        {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
+            {
+                return Unauthorized();
+            }
+            if (ModelState.IsValid)
+            {
+                bool returOK = await _db.EndreAntalletTilgjengeligeAksjerIEnAksje(endreAksje);
+                if (!returOK)
+                {
+                    _log.LogInformation("Aksje ble ikke endret!");
+                    return NotFound("Aksje ble ikke endret!");
+                }
+                return Ok("Aksje endret!");
+            }
+            _log.LogInformation("Feil i inputvalidering!");
+            return BadRequest("Feil i inputvalidering!");
+        }
+        
+        /*
+        public async Task<ActionResult> Slett(int id)
+        {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
+            {
+                return Unauthorized();
+            }
+            bool returOK = await _db.Slett(id);
+            if (!returOK)
+            {
+                _log.LogInformation("Aksje ble ikke slettet!");
+                return NotFound("Aksje ble ikke slettet!");
+            }
+            return Ok("Aksje slettet!");
+        }
+        */
+        
+        /*
         public async Task<ActionResult> Lagre(Aksje innAksje)
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
@@ -43,64 +107,9 @@ namespace Aksjer.Controllers
             return BadRequest("Feil i inputvalidering!");
 
         }
+        */
 
-        [HttpGet]
-        public async Task<ActionResult> HentAlle()
-        {
-            List<Aksje> alleAksjer = await _db.HentAlle();
-            return Ok(alleAksjer);
-        }
-
-        public async Task<ActionResult> Slett(int id)
-        {
-            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
-            {
-                return Unauthorized();
-            }
-            bool returOK = await _db.Slett(id);
-            if (!returOK)
-            {
-                _log.LogInformation("Aksje ble ikke slettet!");
-                return NotFound("Aksje ble ikke slettet!");
-            }
-            return Ok("Aksje slettet!");
-        }
-
-        public async Task<ActionResult> HentEn(int id)
-        {
-            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
-            {
-                return Unauthorized();
-            }
-            Aksje enAksje = await _db.HentEn(id);
-            if (enAksje == null)
-            {
-                _log.LogInformation("Fant ikke aksjen!");
-                return NotFound("Fant ikke aksjen!");
-            }
-            return Ok(enAksje);
-        }
-
-        public async Task<ActionResult> Endre(Aksje endreAksje)
-        {
-            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
-            {
-                return Unauthorized();
-            }
-            if (ModelState.IsValid)
-            {
-                bool returOK = await _db.Endre(endreAksje);
-                if (!returOK)
-                {
-                    _log.LogInformation("Aksje ble ikke endret!");
-                    return NotFound("Aksje ble ikke endret!");
-                }
-                return Ok("Aksje endret!");
-            }
-            _log.LogInformation("Feil i inputvalidering!");
-            return BadRequest("Feil i inputvalidering!");
-        }
-
+        /*
         public async Task<ActionResult> LoggInn(Bruker bruker)
         {
             if (ModelState.IsValid)
@@ -123,5 +132,6 @@ namespace Aksjer.Controllers
         {
             HttpContext.Session.SetString(_loggetInn, "");
         }
+        */
     }
 }
