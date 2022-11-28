@@ -10,7 +10,6 @@ namespace Aksjer.DAL
 {
     public class Aksjer
     {
-        public int Id { get; set; }
         public string Ticker { get; set; }
         public string Aksjenavn { get; set; }
         public double Pris { get; set; }
@@ -18,7 +17,7 @@ namespace Aksjer.DAL
         public string Bors { get; set; }
         public string Land { get; set; }
 
-        virtual public Brukere Bruker { get; set; }
+        // virtual public Brukere Bruker { get; set; }
     }
 
     public class Brukere
@@ -67,7 +66,7 @@ namespace Aksjer.DAL
          * public DbSet<Aksjer> Aksjer { get; set; }
          * Man skal bruke Askjer fra DAl IKKE fra Model
          */
-        public DbSet<Aksje> Aksjer { get; set; }
+        public DbSet<Aksjer.DAL.Aksjer> Aksjer { get; set; }
         public DbSet<Brukere> Brukere { get; set; }
         public DbSet<Ordrer> Ordrer { get; set; }
 
