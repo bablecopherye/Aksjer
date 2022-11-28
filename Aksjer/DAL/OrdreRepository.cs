@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Aksjer.Models;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace Aksjer.DAL
@@ -23,36 +25,35 @@ namespace Aksjer.DAL
         {
             try
             {
-                var nyOrdreRad = new Ordre();
+                var nyOrdreRad = new Ordrer();
+                var aktuellAksje = new Aksje();
                 
                 if (innOrdre.Kunde.Saldo < nyOrdreRad.Pris)
                 {
-                    _log.LogInformation("Bruker har ikke nok penger på konten sin.");
+                    _log.LogInformation("Bruker har ikke nok penger på konten sin");
                     return false;
                 }
-                else if (nyOrdreRad.Aksje.Antall < nyOrdreRad.Antall)
+                if (aktuellAksje.Antall < nyOrdreRad.Antall)
                 {
-                    _log.LogInformation("Det er ikke nok aksjer i markedet til å gjennomføre kjøpet.");
+                    _log.LogInformation("Det er ikke nok aksjer i markedet til å gjennomføre kjøpet");
                     return false;
                 }
-                else
-                {
-                    nyOrdreRad.Id = innOrdre.Id;
-                    nyOrdreRad.DatoAar = innOrdre.DatoAar;
-                    nyOrdreRad.DatoMnd = innOrdre.DatoMnd;
-                    nyOrdreRad.DatoDag = innOrdre.DatoDag;
-                    nyOrdreRad.TidTime = innOrdre.TidTime;
-                    nyOrdreRad.TidMinutt = innOrdre.TidMinutt;
-                    nyOrdreRad.TidSekund = innOrdre.TidSekund;
-                    nyOrdreRad.Aksje = innOrdre.Aksje;
-                    nyOrdreRad.Type = innOrdre.Type;
-                    nyOrdreRad.Antall = innOrdre.Antall;
-                    nyOrdreRad.Pris = innOrdre.Pris;
-                    nyOrdreRad.Kunde.Saldo = innOrdre.Kunde.Saldo - innOrdre.Pris;
-                    nyOrdreRad.Kunde = innOrdre.Kunde;
-                    // nyOrdreRad.Kunde.Aksjebeholdning.AntallAksjerEid;
-
-                }
+                
+                // nyOrdreRad.Id = innOrdre.Id;
+                nyOrdreRad.DatoAar = innOrdre.DatoAar; 
+                nyOrdreRad.DatoMnd = innOrdre.DatoMnd; 
+                nyOrdreRad.DatoDag = innOrdre.DatoDag; 
+                nyOrdreRad.TidTime = innOrdre.TidTime; 
+                nyOrdreRad.TidMinutt = innOrdre.TidMinutt; 
+                nyOrdreRad.TidSekund = innOrdre.TidSekund; 
+                // nyOrdreRad.Aksje = innOrdre.Aksje;
+                // nyOrdreRad.Type = innOrdre.Type;
+                nyOrdreRad.Antall = innOrdre.Antall; 
+                nyOrdreRad.Pris = innOrdre.Pris; 
+                // nyOrdreRad.Kunde.Saldo = innOrdre.Kunde.Saldo - innOrdre.Pris;
+                // nyOrdreRad.Kunde = innOrdre.Kunde;
+                // nyOrdreRad.Kunde.Aksjebeholdning.AntallAksjerEid;
+                
                 _db.Ordrer.Add(nyOrdreRad);
                 await _db.SaveChangesAsync();
                 return true;
@@ -64,30 +65,35 @@ namespace Aksjer.DAL
             }
         }
         
-        public async Task<Ordre> HentOrdre(string ordreId)
+        
+        public async Task<List<Ordre>> HentAlleOrdreTilEnBruker()
         {
             try
             {
-                Ordre orderen = await _db.Brukere.FindAsync(ordreId);
-                var hentetBruker = new Bruker()
+                // Ordrer orderen = await _db.Ordrer.FindAsync(ordreId);
+
+                List<Ordre> alleOrdre = await _db.Ordrer.Select(k => new Ordre()
                 {
-                    Brukernavn = brukeren.Brukernavn,
-                    Passord = brukeren.Passord,
-                    Salt = brukeren.Salt,
-                    Fornavn = brukeren.Fornavn,
-                    Etternavn = brukeren.Etternavn,
-                    Saldo = brukeren.Saldo,
-                    Aksjebeholdning = brukeren.Aksjebeholdning,
-                    Ordre = brukeren.Ordre
-                };
-                return hentetBruker;
+                    // Id = orderen.Id,
+                    DatoAar = k.DatoAar,
+                    DatoMnd = k.DatoMnd,
+                    DatoDag = k.DatoDag,
+                    TidTime = k.TidTime,
+                    TidMinutt = k.TidMinutt,
+                    TidSekund = k.TidSekund,
+                    // Aksje = k.Aksje,
+                    Type = k.Type,
+                    Antall = k.Antall,
+                    Pris = k.Pris,
+                    // Kunde = k.Kunde,
+                }).ToListAsync();
+                return alleOrdre;
             }
-            catch (Exception e)
+            catch(Exception e)
             {
                 _log.LogInformation(e.Message);
                 return null;
             }
         }
-        
     }
 }

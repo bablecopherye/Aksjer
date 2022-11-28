@@ -37,18 +37,20 @@ namespace Aksjer.DAL
     
     public class Ordrer
     {
-        public int Id { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        // public int Id { get; set; }
         public string DatoAar { get; set; }
         public string DatoMnd { get; set; }
         public string DatoDag { get; set; }
         public string TidTime { get; set; }
         public string TidMinutt { get; set; }
         public string TidSekund { get; set; }
-        virtual public Aksje Aksje { get; set; }
+        // virtual public Aksje Aksje { get; set; }
         public string Type { get; set; }
         public int Antall { get; set; }
         public double Pris { get; set; }
-        virtual public Bruker Kunde { get; set; }
+        // virtual public Bruker Kunde { get; set; }
     }
 }
     
@@ -62,7 +64,7 @@ namespace Aksjer.DAL
 
         public DbSet<Aksje> Aksjer { get; set; }
         public DbSet<Bruker> Brukere { get; set; }
-        public DbSet<Ordre> Ordrer { get; set; }
+        public DbSet<Ordrer> Ordrer { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
