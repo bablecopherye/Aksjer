@@ -10,6 +10,7 @@ namespace Aksjer.DAL
 {
     public class Aksjer
     {
+        [Key]
         public string Ticker { get; set; }
         public string Aksjenavn { get; set; }
         public double Pris { get; set; }
@@ -30,8 +31,8 @@ namespace Aksjer.DAL
         public string Fornavn { get; set; }
         public string Etternavn { get; set; }
         public double Saldo { get; set; }
-        public List<Ordre> Ordre { get; set; }
-        public Aksjebeholdning Aksjebeholdning { get; set; }
+        // public List<Ordre> Ordre { get; set; }
+        // public Aksjebeholdning Aksjebeholdning { get; set; }
     }
     
     public class Ordrer

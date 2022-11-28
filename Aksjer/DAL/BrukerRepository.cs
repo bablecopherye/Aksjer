@@ -37,8 +37,8 @@ namespace Aksjer.DAL
                     Fornavn = brukeren.Fornavn,
                     Etternavn = brukeren.Etternavn,
                     Saldo = brukeren.Saldo,
-                    Aksjebeholdning = brukeren.Aksjebeholdning,
-                    Ordre = brukeren.Ordre
+                    //Aksjebeholdning = brukeren.Aksjebeholdning,
+                    // Ordre = brukeren.Ordre
                 };
                 return hentetBruker;
             }
@@ -68,8 +68,8 @@ namespace Aksjer.DAL
                 endreObjekt.Fornavn = innNyBrukerinfo.Fornavn;
                 endreObjekt.Etternavn = innNyBrukerinfo.Etternavn;
                 endreObjekt.Saldo = innNyBrukerinfo.Saldo;
-                endreObjekt.Aksjebeholdning = innNyBrukerinfo.Aksjebeholdning;
-                endreObjekt.Ordre = innNyBrukerinfo.Ordre;
+                //endreObjekt.Aksjebeholdning = innNyBrukerinfo.Aksjebeholdning;
+                // endreObjekt.Ordre = innNyBrukerinfo.Ordre;
                 
                 await _db.SaveChangesAsync();
                 return true;

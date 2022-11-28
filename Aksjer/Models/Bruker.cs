@@ -21,9 +21,9 @@ namespace Aksjer.Models
         [RegularExpression(@"^[0-9]{1,20}$")]
         public double Saldo { get; set; }
         
-        [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{2,30}$")]
-        public List<Ordre> Ordre { get; set; }
+        // [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{2,30}$")]
+        // public List<Ordre> Ordre { get; set; }
         
-        public Aksjebeholdning Aksjebeholdning { get; set; }
+        // public Aksjebeholdning Aksjebeholdning { get; set; }
     }
 }
