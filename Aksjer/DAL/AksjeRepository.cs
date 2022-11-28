@@ -89,7 +89,7 @@ namespace Aksjer.DAL
         {
             try
             {
-                Aksje enAksje = await _db.Aksjer.FindAsync(id);
+                Aksjer enAksje = await _db.Aksjer.FindAsync(id);
                 _db.Aksjer.Remove(enAksje);
                 await _db.SaveChangesAsync();
                 return true;
@@ -132,25 +132,31 @@ namespace Aksjer.DAL
             {
                 var endreObjekt = await _db.Aksjer.FindAsync(endreAksje.Id);
 
-                if (endreObjekt.Person.Fornavn != endreAksje.Fornavn)
+                if (endreObjekt.Bruker.Brukernavn != endreAksje.Brukernavn)
                 {
-                    var sjekkPerson = _db.Personer.Find(endreAksje.Fornavn);
-                    if (sjekkPerson == null)
+                    var sjekkBruker = _db.Brukere.Find(endreAksje.Fornavn);
+                    if (sjekkBruker == null)
                     {
-                        var nyPersonRad = new Personer();
-                        nyPersonRad.Fornavn = endreAksje.Fornavn;
-                        nyPersonRad.Etternavn = endreAksje.Etternavn;
-                        endreObjekt.Person = nyPersonRad;
+                        var nyBrukerRad = new Bruker();
+                        nyBrukerRad.Brukernavn = endreAksje.Brukernavn;
+                        nyBrukerRad.Passord = endreAksje.Passord;
+                        nyBrukerRad.Fornavn = endreAksje.Fornavn;
+                        nyBrukerRad.Etternavn = endreAksje.Etternavn;
+                        nyBrukerRad.Saldo = endreAksje.Saldo;
+                        endreObjekt.Bruker = nyBrukerRad;
                     }
                     else
                     {
-                        endreObjekt.Person = sjekkPerson;
+                        endreObjekt.Bruker = sjekkBruker;
                     }
                 }
 
-                endreObjekt.Navn = endreAksje.Aksjenavn;
+                endreObjekt.Ticker = endreAksje.Ticker;
+                endreObjekt.AksjeNavn = endreAksje.Aksjenavn;
                 endreObjekt.Pris = endreAksje.Pris;
                 endreObjekt.Antall = endreAksje.Antall;
+                endreAksje.Bors = endreAksje.Bors;
+                endreAksje.Land endreAksje.Land;
                 await _db.SaveChangesAsync();
             }
             catch (Exception e)

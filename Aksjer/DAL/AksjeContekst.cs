@@ -62,8 +62,13 @@ namespace Aksjer.DAL
             Database.EnsureCreated();
         }
 
+        /**
+         * Under bør det se slik ut
+         * public DbSet<Aksjer> Aksjer { get; set; }
+         * Man skal bruke Askjer fra DAl IKKE fra Model
+         */
         public DbSet<Aksje> Aksjer { get; set; }
-        public DbSet<Bruker> Brukere { get; set; }
+        public DbSet<Brukere> Brukere { get; set; }
         public DbSet<Ordrer> Ordrer { get; set; }
 
 
