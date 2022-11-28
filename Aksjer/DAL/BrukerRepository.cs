@@ -23,6 +23,7 @@ namespace Aksjer.DAL
             _log = log;
         }
 
+        /*
         public async Task<bool> OpprettNyBruker(Bruker innBruker)
         {
             try
@@ -55,16 +56,18 @@ namespace Aksjer.DAL
                 return false;
             }
         }
+        */
         
-        public async Task<Bruker> HentBruker(string brukernavn)
+        public async Task<Bruker> HentEnBrukersInfo(string brukernavn)
         {
             try
             {
-                Bruker brukeren = await _db.Brukere.FindAsync(brukernavn);
+                Brukere brukeren = await _db.Brukere.FindAsync(brukernavn);
                 var hentetBruker = new Bruker()
+                
                 {
                     Brukernavn = brukeren.Brukernavn,
-                    Passord = brukeren.Passord,
+                    // Passord = brukeren.Passord,
                     Salt = brukeren.Salt,
                     Fornavn = brukeren.Fornavn,
                     Etternavn = brukeren.Etternavn,
@@ -81,8 +84,10 @@ namespace Aksjer.DAL
             }
         }
 
-        public async Task<bool> EndreBrukerinfo(Bruker innNyBrukerinfo)
+        public async Task<bool> EndreBruker(Bruker innNyBrukerinfo)
         {
+            Brukere funnetBruker = await _db.Brukere.FirstOrDefaultAsync(b => b.Brukernavn == innNyBrukerinfo.Brukernavn);
+            
             try
             {
                 var endreObjekt = await _db.Brukere.FindAsync(innNyBrukerinfo.Brukernavn);
@@ -92,7 +97,8 @@ namespace Aksjer.DAL
                 endreObjekt.Etternavn = innNyBrukerinfo.Etternavn;
 
                 endreObjekt.Brukernavn = innNyBrukerinfo.Brukernavn;
-                endreObjekt.Passord = innNyBrukerinfo.Passord;
+                byte[] hashAvNyttPassord = LagHash(innNyBrukerinfo.Passord, funnetBruker.Salt);
+                endreObjekt.Passord =  hashAvNyttPassord;
                 endreObjekt.Salt = innNyBrukerinfo.Salt;
                 endreObjekt.Fornavn = innNyBrukerinfo.Fornavn;
                 endreObjekt.Etternavn = innNyBrukerinfo.Etternavn;
@@ -110,6 +116,7 @@ namespace Aksjer.DAL
             }
         }
 
+        /*
         public async Task<bool> SlettBruker(string brukernavn)
         {
             try
@@ -125,6 +132,7 @@ namespace Aksjer.DAL
                 return false;
             }
         }
+        */
         
         public static byte[] LagHash(string passord, byte[] salt)
         {

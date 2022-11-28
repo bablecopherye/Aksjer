@@ -10,7 +10,7 @@ namespace Aksjer.Models
         public String Brukernavn { get; set; }
         
         [RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$")]
-        public String Passord { get; set; }
+        public string Passord { get; set; }
         public byte[] Salt { get; set; }
         
         [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{2,30}$")]
