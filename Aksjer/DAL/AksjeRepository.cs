@@ -28,25 +28,32 @@ namespace Aksjer.DAL
             try
             {
                 var nyAksjeRad = new Aksjer();
-                nyAksjeRad.Navn = innAksje.Aksjenavn;
+                nyAksjeRad.Ticker = innAksje.Ticker;
+                nyAksjeRad.Aksjenavn = innAksje.Aksjenavn;
                 nyAksjeRad.Pris = innAksje.Pris;
                 nyAksjeRad.Antall = innAksje.Antall;
+                nyAksjeRad.Bors = innAksje.Bors;
+                nyAksjeRad.Land = innAksje.Land;
 
-                var sjekkPerson = await _db.Personer.FindAsync(innAksje.Fornavn);
-                if (sjekkPerson == null)
+                var sjekkBruker = await _db.Brukere.FindAsync(innAksje.Brukernavn);
+                if (sjekkBruker == null)
                 {
-                    var nyPersonRad = new Personer();
-                    nyPersonRad.Fornavn = innAksje.Fornavn;
-                    nyPersonRad.Etternavn = innAksje.Etternavn;
-                    nyAksjeRad.Person = nyPersonRad;
+                    var nyBrukerRad = new Brukere();
+                    nyBrukerRad.Brukernavn = innAksje.Brukernavn;
+                    nyBrukerRad.Passord = innAksje.Passord;
+                    nyBrukerRad.Fornavn = innAksje.Fornavn;
+                    nyBrukerRad.Etternavn = innAksje.Etternavn;
+                    nyBrukerRad.Saldo= innAksje.Saldo;
+                    nyAksjeRad.Bruker = nyBrukerRad;
                 }
-                else
-                {
-                    nyAksjeRad.Person = sjekkPerson;
+                else {
+                    nyAksjeRad.Bruker = sjekkBruker;
+
                 }
                 _db.Aksjer.Add(nyAksjeRad);
                 await _db.SaveChangesAsync();
                 return true;
+
             }
             catch (Exception e)
             {

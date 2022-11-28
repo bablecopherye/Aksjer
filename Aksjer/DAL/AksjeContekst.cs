@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Aksjer.DAL;
 using Aksjer.Models;
+using System;
 
 namespace Aksjer.DAL
 {
@@ -11,27 +12,19 @@ namespace Aksjer.DAL
     {
         public int Id { get; set; }
         public string Ticker { get; set; }
-        public string Navn { get; set; }
+        public string Aksjenavn { get; set; }
         public double Pris { get; set; }
         public int Antall { get; set; }
-        
         public string Bors { get; set; }
-        
         public string Land { get; set; }
 
-        // virtual public Personer Person { get; set; }
-    }
-
-    public class Personer
-    {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public string Fornavn { get; set; }
-        public string Etternavn { get; set; }
+        virtual public Brukere Bruker { get; set; }
     }
 
     public class Brukere
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public string Brukernavn { get; set; }
         public byte[] Passord { get; set; }
         public byte[] Salt { get; set; }
@@ -40,7 +33,6 @@ namespace Aksjer.DAL
         public double Saldo { get; set; }
         public List<Ordre> Ordre { get; set; }
         public Aksjebeholdning Aksjebeholdning { get; set; }
-        
     }
     
     public class Ordrer
@@ -69,7 +61,6 @@ namespace Aksjer.DAL
         }
 
         public DbSet<Aksje> Aksjer { get; set; }
-        public DbSet<Personer> Personer { get; set; }
         public DbSet<Bruker> Brukere { get; set; }
         public DbSet<Ordre> Ordrer { get; set; }
 
