@@ -11,8 +11,7 @@ namespace Aksjer.Models
         
         [RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$")]
         public string Passord { get; set; }
-        public byte[] Salt { get; set; }
-        
+
         [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{2,30}$")]
         public String Fornavn { get; set; }
         
