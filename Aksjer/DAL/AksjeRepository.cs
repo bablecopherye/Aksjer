@@ -89,7 +89,7 @@ namespace Aksjer.DAL
         {
             try
             {
-                Aksjer enAksje = await _db.Aksjer.FindAsync(id);
+                Aksje enAksje = await _db.Aksjer.FindAsync(id);
                 _db.Aksjer.Remove(enAksje);
                 await _db.SaveChangesAsync();
                 return true;
@@ -109,11 +109,13 @@ namespace Aksjer.DAL
                 var hentetAksje = new Aksje()
                 {
                     Id = enAksje.Id,
-                    Aksjenavn = enAksje.Navn,
+                    Ticker = enAksje.Ticker,
+                    Aksjenavn = enAksje.Aksjenavn,
                     Pris = enAksje.Pris,
                     Antall = enAksje.Antall,
-                    Fornavn = enAksje.Person.Fornavn,
-                    Etternavn = enAksje.Person.Etternavn,
+                    Bors = enAksje.Bors,
+                    Land = enAksje.Land,
+                    // Her trenger vi å koble en aksje til en bruker
                 };
                 return hentetAksje;
             }
