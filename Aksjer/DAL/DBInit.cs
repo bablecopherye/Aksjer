@@ -1,6 +1,4 @@
-﻿using System.Reflection.Metadata.Ecma335;
-using System.Runtime.CompilerServices;
-using Aksjer.Models;
+﻿using Aksjer.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -19,16 +17,28 @@ namespace Aksjer.DAL
                 
                 ////// ----- BRUKERE ----- /////////////////////////////////////////////////////////////////////////////
                 
-                // lag en påoggingsbruker
-                var bruker = new Bruker();
-                bruker.Brukernavn = "Admin";
-                string passord = "Test11";
-                byte[] salt = AksjeRepository.LagSalt();
-                byte[] hash = AksjeRepository.LagHash(passord, salt);
-                bruker.Passord = hash;
-                bruker.Salt = salt;
+                // Bruker 1: Hans Larsen
+                string passordHansLarsen = "Test11";
+                byte[] saltHansLarsen = AksjeRepository.LagSalt();
+                byte[] hashHansLarsen = AksjeRepository.LagHash(passordHansLarsen, saltHansLarsen);
                 
-                db.Brukere.Add(bruker);
+                var brukerHansLarsen = new Brukere() 
+                    {Brukernavn = "tradergutt32", Passord = hashHansLarsen, Salt = saltHansLarsen, 
+                        Fornavn = "Hans", Etternavn = "Larsen", Saldo = 350400.00};
+                
+                db.Brukere.Add(brukerHansLarsen);
+                
+                // Bruker 2: Monica Ullensaker
+                string passordMonicaUllensaker = "passord";
+                byte[] saltMonicaUllensaker = AksjeRepository.LagSalt();
+                byte[] hashMonicaUllensaken = AksjeRepository.LagHash(passordMonicaUllensaker, saltMonicaUllensaker);
+                
+                var brukerMonicaUllensaker = new Brukere() 
+                {Brukernavn = "gulljenta60", Passord = hashMonicaUllensaken, Salt = saltMonicaUllensaker, 
+                    Fornavn = "Monica", Etternavn = "Ullensaker", Saldo = 9632.51};
+                
+                db.Brukere.Add(brukerMonicaUllensaker);
+                
 
                 ////// ----- AKSJER ----- //////////////////////////////////////////////////////////////////////////////
                 var aksjeApple = new Aksje() { Id = 1, Ticker = "APPL", Aksjenavn = "Apple", Pris = 450.00, Antall = 15000000, Bors = "New York", Land = "USA"};
