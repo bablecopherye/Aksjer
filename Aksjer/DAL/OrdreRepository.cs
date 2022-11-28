@@ -1,7 +1,6 @@
 using System;
 using System.Threading.Tasks;
 using Aksjer.Models;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using Microsoft.Extensions.Logging;
 
 namespace Aksjer.DAL
@@ -23,36 +22,35 @@ namespace Aksjer.DAL
         {
             try
             {
-                var nyOrdreRad = new Ordre();
+                var nyOrdreRad = new Ordrer();
+                var aktuellAksje = new Aksje();
                 
                 if (innOrdre.Kunde.Saldo < nyOrdreRad.Pris)
                 {
-                    _log.LogInformation("Bruker har ikke nok penger på konten sin.");
+                    _log.LogInformation("Bruker har ikke nok penger på konten sin");
                     return false;
                 }
-                else if (nyOrdreRad.Aksje.Antall < nyOrdreRad.Antall)
+                if (aktuellAksje.Antall < nyOrdreRad.Antall)
                 {
-                    _log.LogInformation("Det er ikke nok aksjer i markedet til å gjennomføre kjøpet.");
+                    _log.LogInformation("Det er ikke nok aksjer i markedet til å gjennomføre kjøpet");
                     return false;
                 }
-                else
-                {
-                    nyOrdreRad.Id = innOrdre.Id;
-                    nyOrdreRad.DatoAar = innOrdre.DatoAar;
-                    nyOrdreRad.DatoMnd = innOrdre.DatoMnd;
-                    nyOrdreRad.DatoDag = innOrdre.DatoDag;
-                    nyOrdreRad.TidTime = innOrdre.TidTime;
-                    nyOrdreRad.TidMinutt = innOrdre.TidMinutt;
-                    nyOrdreRad.TidSekund = innOrdre.TidSekund;
-                    nyOrdreRad.Aksje = innOrdre.Aksje;
-                    nyOrdreRad.Type = innOrdre.Type;
-                    nyOrdreRad.Antall = innOrdre.Antall;
-                    nyOrdreRad.Pris = innOrdre.Pris;
-                    nyOrdreRad.Kunde.Saldo = innOrdre.Kunde.Saldo - innOrdre.Pris;
-                    nyOrdreRad.Kunde = innOrdre.Kunde;
-                    // nyOrdreRad.Kunde.Aksjebeholdning.AntallAksjerEid;
-
-                }
+                
+                // nyOrdreRad.Id = innOrdre.Id;
+                nyOrdreRad.DatoAar = innOrdre.DatoAar; 
+                nyOrdreRad.DatoMnd = innOrdre.DatoMnd; 
+                nyOrdreRad.DatoDag = innOrdre.DatoDag; 
+                nyOrdreRad.TidTime = innOrdre.TidTime; 
+                nyOrdreRad.TidMinutt = innOrdre.TidMinutt; 
+                nyOrdreRad.TidSekund = innOrdre.TidSekund; 
+                // nyOrdreRad.Aksje = innOrdre.Aksje;
+                // nyOrdreRad.Type = innOrdre.Type;
+                nyOrdreRad.Antall = innOrdre.Antall; 
+                nyOrdreRad.Pris = innOrdre.Pris; 
+                // nyOrdreRad.Kunde.Saldo = innOrdre.Kunde.Saldo - innOrdre.Pris;
+                // nyOrdreRad.Kunde = innOrdre.Kunde;
+                // nyOrdreRad.Kunde.Aksjebeholdning.AntallAksjerEid;
+                
                 _db.Ordrer.Add(nyOrdreRad);
                 await _db.SaveChangesAsync();
                 return true;
@@ -64,23 +62,28 @@ namespace Aksjer.DAL
             }
         }
         
-        public async Task<Ordre> HentOrdre(string ordreId)
+        public async Task<Ordre> HentOrdre(int ordreId)
         {
             try
             {
-                Ordre orderen = await _db.Brukere.FindAsync(ordreId);
-                var hentetBruker = new Bruker()
+                Ordrer orderen = await _db.Ordrer.FindAsync(ordreId);
+                
+                var hentetOrder = new Ordre()
                 {
-                    Brukernavn = brukeren.Brukernavn,
-                    Passord = brukeren.Passord,
-                    Salt = brukeren.Salt,
-                    Fornavn = brukeren.Fornavn,
-                    Etternavn = brukeren.Etternavn,
-                    Saldo = brukeren.Saldo,
-                    Aksjebeholdning = brukeren.Aksjebeholdning,
-                    Ordre = brukeren.Ordre
+                    // Id = orderen.Id,
+                    DatoAar = orderen.DatoAar,
+                    DatoMnd = orderen.DatoMnd,
+                    DatoDag = orderen.DatoDag,
+                    TidTime = orderen.TidTime,
+                    TidMinutt = orderen.TidMinutt,
+                    TidSekund = orderen.TidSekund,
+                    // Aksje = orderen.Aksje,
+                    Type = orderen.Type,
+                    Antall = orderen.Antall,
+                    Pris = orderen.Pris,
+                    // Kunde = orderen.Kunde,
                 };
-                return hentetBruker;
+                return hentetOrder;
             }
             catch (Exception e)
             {
