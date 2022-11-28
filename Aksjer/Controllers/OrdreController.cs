@@ -45,8 +45,13 @@ namespace Aksjer.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> HentAlleOrdreTilEnSpesifikkBruker()
-        {
+        public async Task<List<Ordre>> HentAlleOrdreTilEnBruker()
+        { 
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
+            {
+                return Unauthorized();
+            }
+          
             List<Ordre> alleOrdre = await _db.HentOrdre();
             return Ok(alleOrdre);
         }

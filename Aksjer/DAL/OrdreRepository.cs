@@ -1,6 +1,9 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Aksjer.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace Aksjer.DAL
@@ -62,35 +65,35 @@ namespace Aksjer.DAL
             }
         }
         
-        public async Task<Ordre> HentOrdre(int ordreId)
+        
+        public async Task<List<Ordre>> HentAlleOrdreTilEnBruker()
         {
             try
             {
-                Ordrer orderen = await _db.Ordrer.FindAsync(ordreId);
-                
-                var hentetOrder = new Ordre()
+                // Ordrer orderen = await _db.Ordrer.FindAsync(ordreId);
+
+                List<Ordre> alleOrdre = await _db.Ordrer.Select(k => new Ordre()
                 {
                     // Id = orderen.Id,
-                    DatoAar = orderen.DatoAar,
-                    DatoMnd = orderen.DatoMnd,
-                    DatoDag = orderen.DatoDag,
-                    TidTime = orderen.TidTime,
-                    TidMinutt = orderen.TidMinutt,
-                    TidSekund = orderen.TidSekund,
-                    // Aksje = orderen.Aksje,
-                    Type = orderen.Type,
-                    Antall = orderen.Antall,
-                    Pris = orderen.Pris,
-                    // Kunde = orderen.Kunde,
-                };
-                return hentetOrder;
+                    DatoAar = k.DatoAar,
+                    DatoMnd = k.DatoMnd,
+                    DatoDag = k.DatoDag,
+                    TidTime = k.TidTime,
+                    TidMinutt = k.TidMinutt,
+                    TidSekund = k.TidSekund,
+                    // Aksje = k.Aksje,
+                    Type = k.Type,
+                    Antall = k.Antall,
+                    Pris = k.Pris,
+                    // Kunde = k.Kunde,
+                }).ToListAsync();
+                return alleOrdre;
             }
-            catch (Exception e)
+            catch(Exception e)
             {
                 _log.LogInformation(e.Message);
                 return null;
             }
         }
-        
     }
 }
