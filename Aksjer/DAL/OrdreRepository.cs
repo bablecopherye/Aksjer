@@ -66,12 +66,17 @@ namespace Aksjer.DAL
         }
         
         
+        
         public async Task<List<Ordre>> HentAlleOrdreTilEnBruker()
         {
             try
             {
                 // Ordrer orderen = await _db.Ordrer.FindAsync(ordreId);
+//return db.Orders.Where(o => o.Customer == User.Identity.Name);
 
+                // return _db.Ordrer.Where(o => o.Bruker == Bruker.Brukernavn);
+                // List<Ordre> alleOrdre1 = await _db.Ordrer.Where(o => o.Bruker == Bruker.Brukernavn);
+                
                 List<Ordre> alleOrdre = await _db.Ordrer.Select(k => new Ordre()
                 {
                     // Id = orderen.Id,

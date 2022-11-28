@@ -43,16 +43,19 @@ namespace Aksjer.Controllers
             return BadRequest("Feil i inputvalidering!");
 
         }
+        
 
         [HttpGet]
-        public async Task<List<Ordre>> HentAlleOrdreTilEnBruker()
+        public async Task<ActionResult> HentAlleOrdreTilEnBruker()
         { 
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
             {
                 return Unauthorized();
             }
+            
+            
           
-            List<Ordre> alleOrdre = await _db.HentOrdre();
+            List<Ordre> alleOrdre = await _db.HentAlleOrdreTilEnBruker();
             return Ok(alleOrdre);
         }
         
