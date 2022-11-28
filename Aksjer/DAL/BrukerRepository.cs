@@ -33,7 +33,7 @@ namespace Aksjer.DAL
                 {
                     Brukernavn = brukeren.Brukernavn,
                     // Passord = brukeren.Passord,
-                    Salt = brukeren.Salt,
+                    // Salt = brukeren.Salt,
                     Fornavn = brukeren.Fornavn,
                     Etternavn = brukeren.Etternavn,
                     Saldo = brukeren.Saldo,
@@ -64,7 +64,7 @@ namespace Aksjer.DAL
                 endreObjekt.Brukernavn = innNyBrukerinfo.Brukernavn;
                 byte[] hashAvNyttPassord = LagHash(innNyBrukerinfo.Passord, funnetBruker.Salt);
                 endreObjekt.Passord =  hashAvNyttPassord;
-                endreObjekt.Salt = innNyBrukerinfo.Salt;
+                // endreObjekt.Salt = innNyBrukerinfo.Salt;
                 endreObjekt.Fornavn = innNyBrukerinfo.Fornavn;
                 endreObjekt.Etternavn = innNyBrukerinfo.Etternavn;
                 endreObjekt.Saldo = innNyBrukerinfo.Saldo;
