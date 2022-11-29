@@ -7,6 +7,6 @@ namespace Aksjer.DAL
     public interface IOrdreRepository
     {
         Task<bool> OpprettNyOrdre(Ordre innOrdre);
-        Task<List<Ordre>> HentAlleOrdreTilEnBruker();
+        Task<List<Ordre>> HentAlleOrdreTilEnBruker(string brukernavn);
     }
 }
