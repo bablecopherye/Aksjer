@@ -15,15 +15,17 @@ import {NavMenyComponent} from "./components/nav-meny/nav-meny.component";
 import {OrdrelisteComponent} from "./components/ordreliste/ordreliste.component";
 import {AksjebeholdningComponent} from "./components/aksjebeholdning/aksjebeholdning.component";
 import {BunnlinjeComponent} from "./components/bunnlinje/bunnlinje.component";
-import {LoggInnModalComponent} from "./components/logg-inn-modal/logg-inn-modal.component";
 import {BrukerComponent} from "./components/bruker/bruker.component";
 import {BrukerEndreInfoModalComponent} from "./components/bruker-endre-info-modal/bruker-endre-info-modal.component";
+import {DiagramComponent} from "./components/diagram/diagram.component";
+import {SelgModalComponent} from "./components/selg-modal/selg-modal.component";
+import {LoggInnComponent} from "./components/logg-inn/logg-inn.component";
 
 // Services:
 import {AksjeService} from "./services/aksje.service";
 import {HandleService} from "./services/handle.service";
-import {DiagramComponent} from "./components/diagram/diagram.component";
-import {SelgModalComponent} from "./components/selg-modal/selg-modal.component";
+import {OrdreService} from "./services/ordre.service";
+import {BrukerService} from "./services/bruker.service";
 
 @NgModule({
   declarations: [
@@ -35,7 +37,7 @@ import {SelgModalComponent} from "./components/selg-modal/selg-modal.component";
     AksjebeholdningComponent,
     BunnlinjeComponent,
     BrukerComponent,
-    LoggInnModalComponent,
+    LoggInnComponent,
     BrukerEndreInfoModalComponent,
     DiagramComponent,
     SelgModalComponent
@@ -53,7 +55,7 @@ import {SelgModalComponent} from "./components/selg-modal/selg-modal.component";
       { path: 'bruker', component: BrukerComponent },
     ])
   ],
-  providers: [AksjeService, HandleService],
+  providers: [AksjeService, HandleService, OrdreService, BrukerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
