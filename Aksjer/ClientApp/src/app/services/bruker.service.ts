@@ -1,9 +1,7 @@
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
-import {IAksje} from "../models/aksje";
 import {Observable, throwError} from "rxjs";
 import {Injectable} from "@angular/core";
 import {catchError} from "rxjs/operators";
-import {IOrdre} from "../models/ordre";
 import {IBruker} from "../models/bruker";
 
 @Injectable({
@@ -11,13 +9,15 @@ import {IBruker} from "../models/bruker";
 })
 export class BrukerService {
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) {
+    }
 
-    private url: string = "api/Bruker/"
+    private urlHent: string = "api/Bruker/HentEnBrukersInfo(string brukernavn)"
+    private urlLoggInn: string = "api/Bruker/LoggInn"
 
-    hentBruker() : Observable<IBruker>{
+    hentBruker(): Observable<IBruker> {
 
-        return this.http.get<IBruker>(this.url)
+        return this.http.get<IBruker>(this.urlHent)
         // .pipe(catchError(this.feilhaandtering));
     }
 
@@ -27,4 +27,10 @@ export class BrukerService {
     }
     
      */
+
+    
+
+    autentiser(bruker: IBruker): Observable<IBruker> {
+        return this.http.post<IBruker>(this.urlLoggInn, bruker);
+    }
 }
