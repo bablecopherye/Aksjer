@@ -57,8 +57,8 @@ namespace Aksjer.DAL
                 
                 ////// ----- TIDLIGERE ORDRE ----- /////////////////////////////////////////////////////////////////////
                 var ordreHansLarsen1 = new Ordrer() { 
-                    DatoAar = "2022", DatoMnd = "07", DatoDag = "23", TidTime = "11", TidMinutt = "58", TidSekund = "31", 
-                    Type = "Kjøp", Antall = 400, Pris = 156000};
+                    Id = 1, DatoAar = "2022", DatoMnd = "07", DatoDag = "23", TidTime = "11", TidMinutt = "58", TidSekund = "31", 
+                    Type = "Kjøp", Antall = 400, Pris = 156000, Kunde = brukerHansLarsen};
                 
                 db.Ordrer.Add(ordreHansLarsen1);
                 
