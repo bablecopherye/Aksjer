@@ -77,6 +77,7 @@ namespace Aksjer.DAL
         public DbSet<Aksjer.DAL.Aksjer> Aksjer { get; set; }
         public DbSet<Brukere> Brukere { get; set; }
         public DbSet<Ordrer> Ordrer { get; set; }
+        public DbSet<Aksjebeholdninger> Aksjebeholdninger { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
