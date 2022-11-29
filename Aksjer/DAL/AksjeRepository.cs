@@ -35,7 +35,8 @@ namespace Aksjer.DAL
                     Antall = k.Antall,
                     Bors = k.Bors,
                     Land = k.Land,
-                }).ToListAsync();
+                }).ToListAsync(); 
+                
                 return alleAksjer;
             }
             catch(Exception e)
@@ -127,21 +128,7 @@ namespace Aksjer.DAL
         */
         
         /*
-        public async Task<bool> Slett(int id)
-        {
-            try
-            {
-                Aksjer enAksje = await _db.Aksjer.FindAsync(id);
-                _db.Aksjer.Remove(enAksje);
-                await _db.SaveChangesAsync();
-                return true;
-            }
-            catch (Exception e)
-            {
-                _log.LogInformation(e.Message);
-                return false;
-            }
-        }
+        
         */
         /*
 

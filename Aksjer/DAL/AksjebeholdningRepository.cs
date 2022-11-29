@@ -14,7 +14,7 @@ namespace Aksjer.DAL
         private readonly AksjeContext _db;
 
         private ILogger<AksjebeholdningRepository> _log;
-        
+
         public AksjebeholdningRepository(AksjeContext db, ILogger<AksjebeholdningRepository> log)
         {
             _db = db;
@@ -45,12 +45,11 @@ namespace Aksjer.DAL
                 _log.LogInformation(e.Message);
                 return false;
             }
-
         }
-        
-        
+
+
 ////////// ----- HENT ALLE ----- ///////////////////////////////////////////////////////////////////////////////////////         
-         
+         /*
          public async Task<List<Aksjebeholdning>> HentAlleAksjeneIBeholdningen(string brukernavn);
          {
 

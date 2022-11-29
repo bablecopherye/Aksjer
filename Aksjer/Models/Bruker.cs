@@ -7,6 +7,7 @@ namespace Aksjer.Models
 {
     public class Bruker
     {
+        [Key]
         [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{2,20}$")]
         public String Brukernavn { get; set; }
         

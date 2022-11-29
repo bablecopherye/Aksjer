@@ -10,7 +10,7 @@ namespace Aksjer.Models
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
         public DateTime Tidspunkt { get; set; }
-        public Aksje Aksje { get; set; }
+        public virtual Aksje Aksje { get; set; }
 
         [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{4,4}$")] 
         public string Type { get; set; }
@@ -22,7 +22,7 @@ namespace Aksjer.Models
         public double Pris { get; set; }
 
         [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{2,30}$")] 
-        public Bruker Kunde { get; set; }
+        public virtual Bruker Kunde { get; set; }
         
     }
 }

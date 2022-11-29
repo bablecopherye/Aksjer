@@ -47,7 +47,7 @@ namespace Aksjer.Controllers
             return BadRequest("Feil i inputvalidering!");
 
         }
-
+/*
         [HttpGet]
         public async Task<ActionResult> HentAlleAksjeneIBeholdningen(string brukernavn)
         {
@@ -74,5 +74,7 @@ namespace Aksjer.Controllers
             }
             return Ok("Aksjen i beholdningen slettet!");
         }
+        */
     }
+
 }
