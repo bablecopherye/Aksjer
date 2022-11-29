@@ -1,6 +1,8 @@
 import { Component, OnInit} from "@angular/core";
-import { IAksje } from "src/app/models/aksje";
-import {AksjeService} from "../../services/aksje.service";
+import {OrdreService} from "../../services/ordre.service";
+import {IOrdre} from "../../models/ordre";
+import {IBruker} from "../../models/bruker";
+import {BrukerService} from "../../services/bruker.service";
 
 @Component({
     selector: 'ordreliste',
@@ -10,23 +12,37 @@ import {AksjeService} from "../../services/aksje.service";
 export class OrdrelisteComponent implements OnInit {
 
     constructor(
-        private aksjeService: AksjeService
+        private ordreService: OrdreService,
+        private brukerService: BrukerService
     ) {}
 
-    public alleAksjer: Array<IAksje> = [];
+    public alleOrdreTilEnBruker: Array<IOrdre> = [];
     public feilmelding: string = "";
+    public bruker: IBruker;
+    public brukernavn: string = this.bruker.brukernavn;
 
     ngOnInit() {
-        this.hentAlleAksjer();
+        this.hentBrukernavn();
+        this.hentAlleOrdre();
     }
 
-    hentAlleAksjer() {
+    hentBrukernavn() {
         this.feilmelding = "Serverfeil";
-        this.aksjeService.hentAlleAksjer()
+        this.brukerService.hentBruker()
             .subscribe({
-                next: (data: IAksje[]) => this.alleAksjer = data,
+                next: (data: IBruker) => this.bruker = data,
                 error: () => console.error(this.feilmelding),
-                complete: () => console.info('Aksjeinfo er hentet fra server til klient')
+                complete: () => console.info('Bruker er hentet')
+            })
+    }
+
+    hentAlleOrdre() {
+        this.feilmelding = "Serverfeil";
+        this.ordreService.hentAlleOrdreTilEnBruker(this.brukernavn)
+            .subscribe({
+                next: (data: IOrdre[]) => this.alleOrdreTilEnBruker = data,
+                error: () => console.error(this.feilmelding),
+                complete: () => console.info('Alle ordre til en bruker er hentet fra server til klient')
             })
     }
 }

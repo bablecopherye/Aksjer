@@ -10,9 +10,9 @@
 
     <br/>
 
-    <p *ngIf="!alleAksjer"><em>Laster inn...</em></p>
+    <p *ngIf="!alleOrdreTilEnBruker"><em>Laster inn...</em></p>
 
-    <table class='table table-light table-striped table-hover' aria-labelledby="tableLabel" *ngIf="alleAksjer">
+    <table class='table table-light table-striped table-hover' aria-labelledby="tableLabel" *ngIf="alleOrdreTilEnBruker">
         <thead>
         <tr>
             <th>Aksjenavn</th>
@@ -23,13 +23,13 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let aksje of alleAksjer">
-            <td>{{ aksje.aksjenavn }}</td>
-            <td>{{ aksje.aksjenavn }}</td>
-            <td>{{ aksje.pris }}</td>
+        <tr *ngFor="let ordre of alleOrdreTilEnBruker">
+            <td>{{ ordre.aksjenavn }}</td>
+            <td>{{ ordre.aksjenavn }}</td>
+            <td>{{ ordre.antallAksjerKjoptEllerSolgt }}</td>
             <td>
                 <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + 'a/a4/Flag_of_the_United_States.svg'" class="me-2" style="width: 20px" alt="flagg"/>
-                {{ aksje.etternavn }}
+                {{ ordre.boers }}
             </td>
             <td>ledig felt</td>
         </tr>
