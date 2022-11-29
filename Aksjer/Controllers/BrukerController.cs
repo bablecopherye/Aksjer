@@ -58,7 +58,7 @@ namespace Aksjer.Controllers
             return BadRequest("Feil i inputvalidering!");
         }
 
-        [HttpPost]
+        [HttpPost("LoggInn")]
         public async Task<ActionResult> LoggInn(Bruker bruker)
         {
             if (ModelState.IsValid)
