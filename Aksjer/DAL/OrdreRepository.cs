@@ -40,12 +40,7 @@ namespace Aksjer.DAL
                 }
                 
                 // nyOrdreRad.Id = innOrdre.Id;
-                nyOrdreRad.DatoAar = innOrdre.DatoAar; 
-                nyOrdreRad.DatoMnd = innOrdre.DatoMnd; 
-                nyOrdreRad.DatoDag = innOrdre.DatoDag; 
-                nyOrdreRad.TidTime = innOrdre.TidTime; 
-                nyOrdreRad.TidMinutt = innOrdre.TidMinutt; 
-                nyOrdreRad.TidSekund = innOrdre.TidSekund; 
+                nyOrdreRad.Tidspunkt = innOrdre.Tidspunkt;
                 // nyOrdreRad.Aksje = innOrdre.Aksje;
                 // nyOrdreRad.Type = innOrdre.Type;
                 nyOrdreRad.Antall = innOrdre.Antall; 
@@ -71,27 +66,17 @@ namespace Aksjer.DAL
         {
             try
             {
-                // Ordrer orderen = await _db.Ordrer.FindAsync(ordreId);
-//return db.Orders.Where(o => o.Customer == User.Identity.Name);
 
-                // return _db.Ordrer.Where(o => o.Bruker == Bruker.Brukernavn);
-                // List<Ordre> alleOrdre1 = await _db.Ordrer.Where(o => o.Bruker == Bruker.Brukernavn);
-                
                 List<Ordre> alleOrdre = await _db.Ordrer
                     .Select(k => new Ordre()
                 {
                     Id = k.Id,
-                    DatoAar = k.DatoAar,
-                    DatoMnd = k.DatoMnd,
-                    DatoDag = k.DatoDag,
-                    TidTime = k.TidTime,
-                    TidMinutt = k.TidMinutt,
-                    TidSekund = k.TidSekund,
+                    Tidspunkt = k.Tidspunkt,
                     // Aksje = k.Aksje,
                     Type = k.Type,
                     Antall = k.Antall,
                     Pris = k.Pris,
-                    //Kunde = k.Kunde,
+                    // Kunde = k.Kunde,
                 })
                     .Where(o => o.Kunde.Brukernavn == brukernavn)
                     .ToListAsync();
