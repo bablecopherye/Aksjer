@@ -21,6 +21,7 @@ namespace Aksjer.Controllers
             _log = log;
         }
 
+        [HttpGet]
         public async Task<ActionResult> HentEnBrukersInfo(string brukernavn)
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
@@ -36,6 +37,7 @@ namespace Aksjer.Controllers
             return Ok(enBruker);
         }
 
+        [HttpPut]
         public async Task<ActionResult> EndreBruker(Bruker brukerSomSkalEndres)
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
