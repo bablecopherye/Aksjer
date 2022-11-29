@@ -123,44 +123,7 @@ namespace Aksjer.DAL
                 */
         
         /*
-        public async Task<bool> Lagre(Aksje innAksje)
-        {
-            try
-            {
-                var nyAksjeRad = new Aksjer();
-                nyAksjeRad.Ticker = innAksje.Ticker;
-                nyAksjeRad.Aksjenavn = innAksje.Aksjenavn;
-                nyAksjeRad.Pris = innAksje.Pris;
-                nyAksjeRad.Antall = innAksje.Antall;
-                nyAksjeRad.Bors = innAksje.Bors;
-                nyAksjeRad.Land = innAksje.Land;
-
-                var sjekkBruker = await _db.Brukere.FindAsync(innAksje.Brukernavn);
-                if (sjekkBruker == null)
-                {
-                    var nyBrukerRad = new Brukere();
-                    nyBrukerRad.Brukernavn = innAksje.Brukernavn;
-                    nyBrukerRad.Passord = innAksje.Passord;
-                    nyBrukerRad.Fornavn = innAksje.Fornavn;
-                    nyBrukerRad.Etternavn = innAksje.Etternavn;
-                    nyBrukerRad.Saldo= innAksje.Saldo;
-                    nyAksjeRad.Bruker = nyBrukerRad;
-                }
-                else {
-                    nyAksjeRad.Bruker = sjekkBruker;
-
-                }
-                _db.Aksjer.Add(nyAksjeRad);
-                await _db.SaveChangesAsync();
-                return true;
-
-            }
-            catch (Exception e)
-            {
-                _log.LogInformation(e.Message);
-                return false;
-            }
-        }
+        
         */
         
         /*
