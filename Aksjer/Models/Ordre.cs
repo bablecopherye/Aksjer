@@ -1,29 +1,15 @@
+using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Aksjer.Models
 {
     public class Ordre
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
-        
-        [RegularExpression(@"^[0-9]{4,4}$")] 
-        public string DatoAar { get; set; }
-        
-        [RegularExpression(@"^[0-9]{2,2}$")] 
-        public string DatoMnd { get; set; }
-        
-        [RegularExpression(@"^[0-9]{2,2}$")] 
-        public string DatoDag { get; set; }
-        
-        [RegularExpression(@"^[0-9]{2,2}$")] 
-        public string TidTime { get; set; }
-        
-        [RegularExpression(@"^[0-9]{2,2}$")] 
-        public string TidMinutt { get; set; }
-        
-        [RegularExpression(@"^[0-9]{2,2}$")] 
-        public string TidSekund { get; set; }
-        
+        public DateTime Tidspunkt { get; set; }
         public Aksje Aksje { get; set; }
 
         [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{4,4}$")] 
