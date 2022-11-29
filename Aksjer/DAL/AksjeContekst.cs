@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -39,6 +40,7 @@ namespace Aksjer.DAL
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int Id { get; set; }
         public virtual Bruker Bruker { get; set; }
         public virtual Aksje Aksje { get; set; }
         public int AntallAksjerEid { get; set; }
@@ -52,12 +54,7 @@ namespace Aksjer.DAL
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
-        public string DatoAar { get; set; }
-        public string DatoMnd { get; set; }
-        public string DatoDag { get; set; }
-        public string TidTime { get; set; }
-        public string TidMinutt { get; set; }
-        public string TidSekund { get; set; }
+        public DateTime Tidspunkt { get; set; }
         virtual public Aksje Aksje { get; set; }
         public string Type { get; set; }
         public int Antall { get; set; }
