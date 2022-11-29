@@ -70,20 +70,7 @@ namespace Aksjer.Controllers
         }
         
         /*
-        public async Task<ActionResult> Slett(int id)
-        {
-            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
-            {
-                return Unauthorized();
-            }
-            bool returOK = await _db.Slett(id);
-            if (!returOK)
-            {
-                _log.LogInformation("Aksje ble ikke slettet!");
-                return NotFound("Aksje ble ikke slettet!");
-            }
-            return Ok("Aksje slettet!");
-        }
+        
         */
         
         /*
