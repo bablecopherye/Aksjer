@@ -46,7 +46,7 @@ namespace Aksjer.Controllers
         
 
         [HttpGet]
-        public async Task<ActionResult> HentAlleOrdreTilEnBruker()
+        public async Task<ActionResult> HentAlleOrdreTilEnBruker(string brukernavn)
         { 
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
             {
@@ -55,7 +55,7 @@ namespace Aksjer.Controllers
             
             
           
-            List<Ordre> alleOrdre = await _db.HentAlleOrdreTilEnBruker();
+            List<Ordre> alleOrdre = await _db.HentAlleOrdreTilEnBruker(brukernavn);
             return Ok(alleOrdre);
         }
         
