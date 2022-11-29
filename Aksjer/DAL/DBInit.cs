@@ -1,4 +1,4 @@
-﻿using Aksjer.Models;
+﻿using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -57,7 +57,7 @@ namespace Aksjer.DAL
                 
                 ////// ----- TIDLIGERE ORDRE ----- /////////////////////////////////////////////////////////////////////
                 var ordreHansLarsen1 = new Ordrer() { 
-                    Id = 1, DatoAar = "2022", DatoMnd = "07", DatoDag = "23", TidTime = "11", TidMinutt = "58", TidSekund = "31", 
+                    Id = 1, Tidspunkt = new DateTime(2022, 07, 23, 11, 58, 31), 
                     Type = "Kjøp", Antall = 400, Pris = 156000, Kunde = brukerHansLarsen};
                 
                 db.Ordrer.Add(ordreHansLarsen1);
