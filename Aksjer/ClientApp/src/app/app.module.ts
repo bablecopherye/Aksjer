@@ -26,6 +26,7 @@ import {AksjeService} from "./services/aksje.service";
 import {HandleService} from "./services/handle.service";
 import {OrdreService} from "./services/ordre.service";
 import {BrukerService} from "./services/bruker.service";
+import {ValideringService} from "./services/validering.service";
 
 @NgModule({
   declarations: [
@@ -50,12 +51,13 @@ import {BrukerService} from "./services/bruker.service";
     NgApexchartsModule,
     RouterModule.forRoot([
       { path: '', component: HjemComponent, pathMatch: 'full' },
+      { path: 'logg-inn', component: LoggInnComponent },
       { path: 'aksjebeholdning', component: AksjebeholdningComponent },
       { path: 'ordreliste', component: OrdrelisteComponent },
       { path: 'bruker', component: BrukerComponent },
     ])
   ],
-  providers: [AksjeService, HandleService, OrdreService, BrukerService],
+  providers: [AksjeService, HandleService, OrdreService, BrukerService, ValideringService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
