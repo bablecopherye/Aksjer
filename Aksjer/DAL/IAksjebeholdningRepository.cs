@@ -4,7 +4,7 @@ using Aksjer.Models;
 
 namespace Aksjer.DAL
 {
-    public class IAksjebeholdningRepository
+    public interface IAksjebeholdningRepository
     {
         Task<bool> LagreNyAksjeTilBeholdningen(Aksje innAksje);
         Task<List<Aksje>> HentAlleAksjeneIBeholdningen();
