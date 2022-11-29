@@ -67,7 +67,7 @@ namespace Aksjer.DAL
         
         
         
-        public async Task<List<Ordre>> HentAlleOrdreTilEnBruker()
+        public async Task<List<Ordre>> HentAlleOrdreTilEnBruker(string brukernavn)
         {
             try
             {
@@ -77,9 +77,10 @@ namespace Aksjer.DAL
                 // return _db.Ordrer.Where(o => o.Bruker == Bruker.Brukernavn);
                 // List<Ordre> alleOrdre1 = await _db.Ordrer.Where(o => o.Bruker == Bruker.Brukernavn);
                 
-                List<Ordre> alleOrdre = await _db.Ordrer.Select(k => new Ordre()
+                List<Ordre> alleOrdre = await _db.Ordrer
+                    .Select(k => new Ordre()
                 {
-                    // Id = orderen.Id,
+                    Id = k.Id,
                     DatoAar = k.DatoAar,
                     DatoMnd = k.DatoMnd,
                     DatoDag = k.DatoDag,
@@ -90,8 +91,11 @@ namespace Aksjer.DAL
                     Type = k.Type,
                     Antall = k.Antall,
                     Pris = k.Pris,
-                    // Kunde = k.Kunde,
-                }).ToListAsync();
+                    //Kunde = k.Kunde,
+                })
+                    .Where(o => o.Kunde.Brukernavn == brukernavn)
+                    .ToListAsync();
+                
                 return alleOrdre;
             }
             catch(Exception e)
