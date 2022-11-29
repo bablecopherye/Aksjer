@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Aksjer.DAL;
 using Aksjer.Models;
-using System;
 
 namespace Aksjer.DAL
 {
@@ -39,7 +37,7 @@ namespace Aksjer.DAL
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        // public int Id { get; set; }
+        public int Id { get; set; }
         public string DatoAar { get; set; }
         public string DatoMnd { get; set; }
         public string DatoDag { get; set; }
@@ -50,7 +48,7 @@ namespace Aksjer.DAL
         public string Type { get; set; }
         public int Antall { get; set; }
         public double Pris { get; set; }
-        // virtual public Bruker Kunde { get; set; }
+        virtual public Brukere Kunde { get; set; }
     }
 }
     
@@ -61,12 +59,7 @@ namespace Aksjer.DAL
         {
             Database.EnsureCreated();
         }
-
-        /**
-         * Under bør det se slik ut
-         * public DbSet<Aksjer> Aksjer { get; set; }
-         * Man skal bruke Askjer fra DAl IKKE fra Model
-         */
+        
         public DbSet<Aksjer.DAL.Aksjer> Aksjer { get; set; }
         public DbSet<Brukere> Brukere { get; set; }
         public DbSet<Ordrer> Ordrer { get; set; }
