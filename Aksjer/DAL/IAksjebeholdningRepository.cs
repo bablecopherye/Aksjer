@@ -6,7 +6,7 @@ namespace Aksjer.DAL
 {
     public interface IAksjebeholdningRepository
     {
-        Task<bool> LagreNyAksjeTilBeholdningen(Aksje innAksje);
+        Task<bool> LagreNyAksjeTilBeholdningen(Ordre innOrdre);
         Task<List<Aksje>> HentAlleAksjeneIBeholdningen();
         Task<bool> SlettAksjeHvisDuSelgerAlt(int id);
         Task<Aksje> HentEnAksje(string ticker);
