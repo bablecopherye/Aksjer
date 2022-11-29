@@ -12,7 +12,7 @@ export class OrdreService {
 
     constructor(private http: HttpClient) { }
 
-    private url: string = "api/Ordre/"
+    private url: string = "api/Ordre/HentAlleOrdreTilEnBruker"
 
     hentAlleOrdreTilEnBruker(brukernavn) : Observable<IOrdre[]>{
 
