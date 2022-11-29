@@ -1,5 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace Aksjer.Models
 {
     public class Aksjebeholdning
