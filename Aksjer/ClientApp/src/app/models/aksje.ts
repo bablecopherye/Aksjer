@@ -1,7 +1,7 @@
-export interface IAksje {
-    ticker: string,
-    aksjenavn: string,
-    pris: number,
-    bors: string,
-    land: string
+export class Aksje {
+    ticker: string;
+    aksjenavn: string;
+    pris: number;
+    bors: string;
+    land: string;
 }

@@ -14,12 +14,6 @@ namespace Aksjer.DAL
 
                 db.Database.EnsureDeleted();
                 db.Database.EnsureCreated();
-                
-                ////// ----- BRUKER ----- //////////////////////////////////////////////////////////////////////////////
-                
-                var brukerHansLarsen = new Brukere() { Fornavn = "Hans", Etternavn = "Larsen", Saldo = 350400.00 };
-                
-                db.Brukere.Add(brukerHansLarsen);
 
                 ////// ----- AKSJER ----- //////////////////////////////////////////////////////////////////////////////
                 var aksjeApple = new Aksjer() { Ticker = "APPL", Aksjenavn = "Apple", Pris = 450.00, Bors = "New York", Land = "USA"};

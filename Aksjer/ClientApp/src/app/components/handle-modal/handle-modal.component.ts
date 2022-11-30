@@ -1,5 +1,8 @@
 import { Component, OnInit} from "@angular/core";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { Ordre } from "../../models/ordre";
+import {FormGroup, FormControl, Validators, FormBuilders, FormBuilder} from "@angular/forms";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
     selector: 'handle-modal',
@@ -8,14 +11,48 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 })
 export class HandleModalComponent {
 
+    kjopeskjema: FormGroup;
+
     constructor(
-        private modalService: NgbModal
+        private modalService: NgbModal,
+        private _http: HttpClient, 
+        private fb: FormBuilder
     ) {}
+
+    ngOnInit() {
+        this.hentAlleOrdre();
+    }
+
 
     open(dialogboksen) {
         this.modalService.open(dialogboksen, { centered: true});
     }
+
+    vedSubmit() {
+        this.registrerKjop();
+    }
+
+    registrerKjop() {
+        const registrertKjop = new Ordre;
+        
+        registrertKjop.aksje = this.kjopeskjema.value.aksjenavn;
+        registrertKjop.type = this.kjopeskjema.value.type;
+        registrertKjop.antall = this.kjopeskjema.value.antall;
+        registrertKjop.pris = this.kjopeskjema.value.kostnad;
+
+        this._http.post("api/Ordre", registrertKjop)
+            .subscribe(retur=> {
+                    this.hentAlleOrdre();
+                    this.visSkjemaRegistrere = false;
+                    this.visListe = true;
+                },
+                error => console.log(error)
+            );
+    };
+    
 }
+
+
 
 var aktuellAksje = new Aksjer();
 var brukerNySaldo = new Brukere();

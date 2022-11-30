@@ -1,9 +1,8 @@
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
-import {IAksje} from "../models/aksje";
 import {Observable, throwError} from "rxjs";
 import {Injectable} from "@angular/core";
 import {catchError} from "rxjs/operators";
-import {IOrdre} from "../models/ordre";
+import {Ordre} from "../models/ordre";
 
 @Injectable({
     providedIn: 'root'
@@ -24,9 +23,9 @@ export class OrdreService {
     
      */
 
-    HentAlleOrdre() : Observable<IOrdre[]>{
+    HentAlleOrdre() : Observable<Ordre[]>{
 
-        return this.http.get<IOrdre[]>(this.url_hent)
+        return this.http.get<Ordre[]>(this.url_hent)
             .pipe(catchError(this.feilhaandtering));
     }
     

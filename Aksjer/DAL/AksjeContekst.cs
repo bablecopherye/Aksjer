@@ -18,15 +18,6 @@ namespace Aksjer.DAL
         public string Land { get; set; }
     }
 
-////////// ----- BRUKERE ----- //////////////////////////////////////////////////////////////////////////////////    
-    public class Brukere
-    {
-        public int Id { get; set; }
-        public string Fornavn { get; set; }
-        public string Etternavn { get; set; }
-        public double Saldo { get; set; }
-    }
-    
 ////////// ----- AKSJEBEHOLDNINGER ----- ///////////////////////////////////////////////////////////////////////////////  
     public class Aksjebeholdninger
     {
@@ -57,7 +48,6 @@ namespace Aksjer.DAL
         }
         
         public DbSet<Aksjer.DAL.Aksjer> Aksjer { get; set; }
-        public DbSet<Brukere> Brukere { get; set; }
         public DbSet<Ordrer> Ordrer { get; set; }
         public DbSet<Aksjebeholdninger> Aksjebeholdninger { get; set; }
 

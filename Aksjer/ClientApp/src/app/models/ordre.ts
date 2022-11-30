@@ -1,9 +1,9 @@
-import {IAksje} from "./aksje";
+import {Aksje} from "./aksje";
 
-export interface IOrdre {
-    id: number,
-    aksje: IAksje,
+export class Ordre {
+    id: number;
+    aksje: Aksje;
     type: string;
-    antall: number,
-    pris: number,
+    antall: number;
+    pris: number;
 }
