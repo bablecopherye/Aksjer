@@ -20,7 +20,6 @@ import {SelgModalComponent} from "./components/selg-modal/selg-modal.component";
 
 // Services:
 import {AksjeService} from "./services/aksje.service";
-import {HandleService} from "./services/handle.service";
 import {OrdreService} from "./services/ordre.service";
 import {ValideringService} from "./services/validering.service";
 
@@ -49,7 +48,7 @@ import {ValideringService} from "./services/validering.service";
         ]),
         ReactiveFormsModule
     ],
-  providers: [AksjeService, HandleService, OrdreService, ValideringService],
+  providers: [AksjeService, OrdreService, ValideringService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
