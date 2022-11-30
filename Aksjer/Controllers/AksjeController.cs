@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -45,26 +44,6 @@ namespace Aksjer.Controllers
                 return NotFound("Fant ikke aksjen!");
             }
             return Ok(enAksje);
-        }
-        
-        
-////////// ----- ENDRE ANTALLET AKSJER ----- ///////////////////////////////////////////////////////////////////////////        
-
-        [HttpPut]
-        public async Task<ActionResult> EndreAntalletTilgjengeligeAksjerIEnAksje(Aksje endreAksje)
-        {
-            if (ModelState.IsValid)
-            {
-                bool returOK = await _db.EndreAntalletTilgjengeligeAksjerIEnAksje(endreAksje);
-                if (!returOK)
-                {
-                    _log.LogInformation("Aksje ble ikke endret!");
-                    return NotFound("Aksje ble ikke endret!");
-                }
-                return Ok("Aksje endret!");
-            }
-            _log.LogInformation("Feil i inputvalidering!");
-            return BadRequest("Feil i inputvalidering!");
         }
     }
 }

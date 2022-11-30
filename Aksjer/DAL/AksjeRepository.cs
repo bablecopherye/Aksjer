@@ -70,26 +70,6 @@ namespace Aksjer.DAL
                 return null;
             }
         }
-        
-
-////////// ----- ENDRE ----- ///////////////////////////////////////////////////////////////////////////////////////////
-
-        public async Task<bool> EndreAntalletTilgjengeligeAksjerIEnAksje(Aksje endreAksje)
-        {
-            try
-            {
-                var funnetAksje = await _db.Aksjer.FindAsync(endreAksje.Ticker);
-
-                funnetAksje.Antall = endreAksje.Antall;
-                await _db.SaveChangesAsync();
-                return true;
-            }
-            catch (Exception e)
-            {
-                _log.LogInformation(e.Message);
-                return false;
-            }
-        }
     }
 }
 

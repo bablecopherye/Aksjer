@@ -1,5 +1,5 @@
 import { Component, OnInit} from "@angular/core";
-import { IAksje } from "src/app/models/aksje";
+import { Aksje } from "src/app/models/aksje";
 import {AksjeService} from "../../services/aksje.service";
 
 @Component({
@@ -13,7 +13,7 @@ export class AksjebeholdningComponent implements OnInit {
         private aksjeService: AksjeService
     ) {}
 
-    public alleAksjer: Array<IAksje> = [];
+    public alleAksjer: Array<Aksje> = [];
     public feilmelding: string = "";
 
     ngOnInit() {
@@ -24,7 +24,7 @@ export class AksjebeholdningComponent implements OnInit {
         this.feilmelding = "Serverfeil";
         this.aksjeService.hentAlleAksjer()
             .subscribe({
-                next: (data: IAksje[]) => this.alleAksjer = data,
+                next: (data: Aksje[]) => this.alleAksjer = data,
                 error: () => console.error(this.feilmelding),
                 complete: () => console.info('Aksjeinfo er hentet fra server til klient')
             })

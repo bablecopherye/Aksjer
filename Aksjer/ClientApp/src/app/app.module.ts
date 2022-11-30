@@ -22,7 +22,6 @@ import {SelgModalComponent} from "./components/selg-modal/selg-modal.component";
 import {AksjeService} from "./services/aksje.service";
 import {HandleService} from "./services/handle.service";
 import {OrdreService} from "./services/ordre.service";
-import {BrukerService} from "./services/bruker.service";
 import {ValideringService} from "./services/validering.service";
 
 @NgModule({
@@ -50,7 +49,7 @@ import {ValideringService} from "./services/validering.service";
         ]),
         ReactiveFormsModule
     ],
-  providers: [AksjeService, HandleService, OrdreService, BrukerService, ValideringService],
+  providers: [AksjeService, HandleService, OrdreService, ValideringService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

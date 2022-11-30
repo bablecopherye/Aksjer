@@ -1,7 +1,6 @@
 import { Component, OnInit} from "@angular/core";
 import {OrdreService} from "../../services/ordre.service";
-import {IOrdre} from "../../models/ordre";
-import {IBruker} from "../../models/bruker";
+import { Ordre } from "../../models/ordre";
 
 @Component({
     selector: 'ordreliste',
@@ -14,9 +13,8 @@ export class OrdrelisteComponent implements OnInit {
         private ordreService: OrdreService,
     ) {}
 
-    public alleOrdre: Array<IOrdre> = [];
+    public alleOrdre: Array<Ordre> = [];
     public feilmelding: string = "Klarte ikke hente ordrene";
-    public bruker: IBruker;
 
     ngOnInit() {
         this.hentAlleOrdre();
@@ -26,7 +24,7 @@ export class OrdrelisteComponent implements OnInit {
         this.feilmelding = "Serverfeil";
         this.ordreService.HentAlleOrdre()
             .subscribe({
-                next: (data: IOrdre[]) => this.alleOrdre = data,
+                next: (data: Ordre[]) => this.alleOrdre = data,
                 error: () => console.error(this.feilmelding),
                 complete: () => console.info('Alle ordre er hentet fra server til klient')
             })

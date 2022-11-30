@@ -1,5 +1,5 @@
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
-import {IAksje} from "../models/aksje";
+import {Aksje} from "../models/aksje";
 import {Observable, throwError} from "rxjs";
 import {Injectable} from "@angular/core";
 import {catchError} from "rxjs/operators";
@@ -13,9 +13,9 @@ export class AksjeService {
 
     private urlTilAksjeKlasse: string = "api/Aksje/"
 
-    hentAlleAksjer() : Observable<IAksje[]>{
+    hentAlleAksjer() : Observable<Aksje[]>{
 
-        return this.http.get<IAksje[]>(this.urlTilAksjeKlasse)
+        return this.http.get<Aksje[]>(this.urlTilAksjeKlasse)
            .pipe(catchError(this.feilhaandtering));
     }
     

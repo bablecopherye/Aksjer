@@ -11,21 +11,21 @@ export class OrdreService {
 
     constructor(private http: HttpClient) { }
 
-    private url_hent: string = "api/Ordre/HentAlleOrdre"
-    private url_ny: string = "api/Ordre/HentAlleOrdre"
+    private url: string = "api/Ordre/"
 
-    /*
-    OpprettNyOrdre(innOrdre, brukersSaldo) : Observable<IOrdre>{
 
-        return this.http.post<IOrdre>(this.url_ny, )
+    
+    
+    
+    OpprettNyOrdre(registrertKjop) : Observable<Ordre>{
+
+        return this.http.post<Ordre>(this.url, registrertKjop)
             .pipe(catchError(this.feilhaandtering));
     }
-    
-     */
 
     HentAlleOrdre() : Observable<Ordre[]>{
 
-        return this.http.get<Ordre[]>(this.url_hent)
+        return this.http.get<Ordre[]>(this.url)
             .pipe(catchError(this.feilhaandtering));
     }
     
