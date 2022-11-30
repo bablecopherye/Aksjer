@@ -1,11 +1,8 @@
 import {IAksje} from "./aksje";
 
 export interface IAksjebeholdning {
+    id: number,
     aksje: IAksje,
-    antallAksjerIBeholdning: number,
-    kostprisPerAksje: number,
+    antall: number,
     kostpris: number,
-    naaverdi: number,
-    avkastningIKr: number,
-    avkastningIProsent: number,
 }
