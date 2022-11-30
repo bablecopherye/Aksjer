@@ -1,7 +1,7 @@
 import { Component, OnInit} from "@angular/core";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { Ordre } from "../../models/ordre";
-import {FormGroup, FormControl, Validators, FormBuilders, FormBuilder} from "@angular/forms";
+import {FormGroup, FormBuilder} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {OrdreService} from "../../services/ordre.service";
 
@@ -22,7 +22,7 @@ export class HandleModalComponent {
     ) {}
 
     ngOnInit() {
-        this.hentAksje();
+        //this.hentAksje();
     }
 
 
@@ -47,7 +47,7 @@ export class HandleModalComponent {
     
 }
 
-
+/*
 // Hvis det ikke selges, så skal det kjøpes
 else
 {
@@ -87,3 +87,5 @@ else
 
 await _db.SaveChangesAsync();
 return true;
+
+ */

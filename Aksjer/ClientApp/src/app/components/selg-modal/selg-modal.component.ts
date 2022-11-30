@@ -21,7 +21,7 @@ export class SelgModalComponent {
 
 
 
-
+/*
 
 
 // Sjekker om aksjen som selges finnes i beholdningen til bruker
@@ -47,4 +47,4 @@ _db.Ordrer.Add(nyOrdreRad);
 _db.Aksjer.Update(aktuellAksje);
 _db.Aksjebeholdninger.Update(eksisterendeAksjeIBeholdningen);
 
-
+*/

@@ -26,7 +26,7 @@ namespace Aksjer.Controllers
 ////////// ----- LAGRE NY AKSJE ----- //////////////////////////////////////////////////////////////////////////////////   
 
         [HttpPost]
-        public async Task<ActionResult> LagreNyAksjeTilBeholdningen(Ordre innOrdre)
+        public async Task<ActionResult> LagreNyAksjeTilBeholdningen(Ordrer innOrdre)
         {
 
             if (ModelState.IsValid)
@@ -45,7 +45,7 @@ namespace Aksjer.Controllers
             return BadRequest("Feil i inputvalidering!");
 
         }
-        
+        /*
         
 ////////// ----- HENT AKSJEBEHOLDNINGEN ----- //////////////////////////////////////////////////////////////////////////    
 
@@ -70,5 +70,6 @@ namespace Aksjer.Controllers
             }
             return Ok("Aksjen i beholdningen slettet!");
         }
+        */
     }
 }

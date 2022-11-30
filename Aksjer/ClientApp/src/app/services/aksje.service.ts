@@ -18,6 +18,12 @@ export class AksjeService {
         return this.http.get<Aksje[]>(this.urlTilAksjeKlasse)
            .pipe(catchError(this.feilhaandtering));
     }
+
+    hentEnAksje() : Observable<Aksje>{
+
+        return this.http.get<Aksje>(this.urlTilAksjeKlasse)
+            .pipe(catchError(this.feilhaandtering));
+    }
     
     private feilhaandtering(error: HttpErrorResponse){
         return throwError( () => error);

@@ -23,7 +23,7 @@ namespace Aksjer.DAL
 
 ////////// ----- LAGRE NY AKSJE ----- //////////////////////////////////////////////////////////////////////////////////     
 
-        public async Task<bool> LagreNyAksjeTilBeholdningen(Ordre innOrdre)
+        public async Task<bool> LagreNyAksjeTilBeholdningen(Ordrer innOrdre)
         {
             try
             {
@@ -46,7 +46,7 @@ namespace Aksjer.DAL
             }
         }
 
-
+/*
 ////////// ----- HENT ALLE ----- ///////////////////////////////////////////////////////////////////////////////////////         
          
          public async Task<List<Aksjebeholdning>> HentHeleAksjebeholdningen();
@@ -102,7 +102,7 @@ namespace Aksjer.DAL
      
      Task<Aksje> HentEnAksje(string ticker);
      
-     
+     */
     }
     
 }

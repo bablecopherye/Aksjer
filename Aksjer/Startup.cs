@@ -27,7 +27,6 @@ namespace Aksjer
             services.AddControllers();
             services.AddDbContext<AksjeContext>(options => options.UseSqlite("Data source=Aksje.db"));
             services.AddScoped<IAksjeRepository, AksjeRepository>();
-            services.AddScoped<IBrukerRepository, BrukerRepository>();
             services.AddScoped<IAksjebeholdningRepository, AksjebeholdningRepository>();
             services.AddScoped<IOrdreRepository, OrdreRepository>();
             services.AddSession(options =>

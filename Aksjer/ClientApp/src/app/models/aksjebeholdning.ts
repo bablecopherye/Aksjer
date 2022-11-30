@@ -1,8 +1,8 @@
-import {IAksje} from "./aksje";
+import {Aksje} from "./aksje";
 
 export interface IAksjebeholdning {
     id: number,
-    aksje: IAksje,
+    aksje: Aksje,
     antall: number,
     kostpris: number,
 }

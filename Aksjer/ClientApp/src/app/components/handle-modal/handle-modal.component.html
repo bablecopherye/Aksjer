@@ -1,6 +1,6 @@
 <ng-template #visDialogboksen let-modal>
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Kjøp [aksjenavn]-aksjer</h4>
+        <h4 class="modal-title" id="modal-basic-title">Kjøp aksjer</h4>
     </div>
     <div class="modal-body">
         <form [formGroup]="kjopeskjema" (ngSubmit)="vedSubmit()">
@@ -14,12 +14,6 @@
                 <label for="ordretype" class="col-sm-3 col-form-label"><strong>Type</strong></label>
                 <div class="col-sm-7">
                     <input type="text" class="form-control-plaintext" id="ordretype" value="Kjøp" formControlName="kjøp" readonly disabled>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="pris" class="col-sm-3 col-form-label"><strong>Siste pris</strong></label>
-                <div class="col-sm-7">
-                    <input type="text" class="form-control-plaintext" id="pris" value={{aksjepris}} formControlName="pris" readonly disabled>
                 </div>
             </div>
             <div class="form-group row">
