@@ -9,29 +9,29 @@ using Microsoft.Extensions.Logging;
 namespace Aksjer.Controllers
 {
     [Route("api/[controller]")]
+    [ApiController]
     public class OrdreController : ControllerBase
     {
         private readonly IOrdreRepository _db;
 
         private ILogger<OrdreController> _log;
-
-        private const string _loggetInn = "loggetInn";
+        
         public OrdreController(IOrdreRepository db, ILogger<OrdreController> log)
         {
             _db = db;
             _log = log;
         }
         
+ 
+////////// ----- NY ORDRE ----- ////////////////////////////////////////////////////////////////////////////////////////        
+        
         [HttpPost]
-        public async Task<ActionResult> OpprettNyOrdre(Ordre innOrdre)
+        public async Task<ActionResult> OpprettNyOrdre(Ordre innOrdre, double brukersSaldo)
         {
-            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
-            {
-                return Unauthorized();
-            }
+            
             if (ModelState.IsValid)
             {
-                bool returOK = await _db.OpprettNyOrdre(innOrdre);
+                bool returOK = await _db.NyOrdre(innOrdre, brukersSaldo);
                 if (!returOK)
                 {
                     _log.LogInformation("Orderen ble ikke gjennomført!");
@@ -39,23 +39,18 @@ namespace Aksjer.Controllers
                 }
                 return Ok("Orderen er gjennomført!");
             }
+            
             _log.LogInformation("Feil i inputvalidering!");
             return BadRequest("Feil i inputvalidering!");
-
         }
+
         
+////////// ----- HENT ALLE ORDRE ----- /////////////////////////////////////////////////////////////////////////////////       
 
         [HttpGet]
-        public async Task<ActionResult> HentAlleOrdreTilEnBruker(string brukernavn)
-        { 
-            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
-            {
-                return Unauthorized();
-            }
-            
-            
-          
-            List<Ordre> alleOrdre = await _db.HentAlleOrdreTilEnBruker(brukernavn);
+        public async Task<ActionResult> HentAlleOrdre()
+        {
+            List<Ordre> alleOrdre = await _db.HentAlleOrdre();
             return Ok(alleOrdre);
         }
         

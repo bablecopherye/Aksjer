@@ -12,8 +12,7 @@ export class BrukerService {
     constructor(private http: HttpClient) {
     }
 
-    private urlHent: string = "api/Bruker/HentEnBrukersInfo(string brukernavn)"
-    private urlLoggInn: string = "api/Bruker/LoggInn"
+    private urlHent: string = "api/Bruker/"
 
     hentBruker(): Observable<IBruker> {
 
@@ -27,10 +26,5 @@ export class BrukerService {
     }
     
      */
-
     
-
-    autentiser(bruker: IBruker): Observable<IBruker> {
-        return this.http.post<IBruker>(this.urlLoggInn, bruker);
-    }
 }

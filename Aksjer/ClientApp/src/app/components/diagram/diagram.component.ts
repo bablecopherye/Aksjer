@@ -1,5 +1,5 @@
 ﻿import { Component } from "@angular/core";
-import {ApexChart, ApexNonAxisChartSeries, ApexOptions, NgApexchartsModule} from "ng-apexcharts";
+import {ApexChart, ApexNonAxisChartSeries, ApexOptions, ApexPlotOptions, NgApexchartsModule} from "ng-apexcharts";
 import { OnInit} from "@angular/core";
 
 @Component({
@@ -10,6 +10,7 @@ import { OnInit} from "@angular/core";
 export class DiagramComponent implements OnInit {
 
     public chartSeries: ApexNonAxisChartSeries = [40, 32, 28, 55];
+    public labels: string[] = ["ok", "hei", "bort", "lort"];
 
     public chartDetails: ApexChart = {
         type: 'pie',

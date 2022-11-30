@@ -9,13 +9,12 @@ using Microsoft.Extensions.Logging;
 namespace Aksjer.Controllers
 {
     [Route("api/[controller]")]
+    [ApiController]
     public class AksjebeholdningController : ControllerBase
     {
         private readonly IAksjebeholdningRepository _db;
 
         private ILogger<AksjebeholdningController> _log;
-
-        private const string _loggetInn = "loggetInn";
 
         public AksjebeholdningController(IAksjebeholdningRepository db, ILogger<AksjebeholdningController> log)
         {
@@ -23,13 +22,12 @@ namespace Aksjer.Controllers
             _log = log;
         }
 
+        
+////////// ----- LAGRE NY AKSJE ----- //////////////////////////////////////////////////////////////////////////////////   
+
         [HttpPost]
         public async Task<ActionResult> LagreNyAksjeTilBeholdningen(Ordre innOrdre)
         {
-            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
-            {
-                return Unauthorized();
-            }
 
             if (ModelState.IsValid)
             {
@@ -47,25 +45,23 @@ namespace Aksjer.Controllers
             return BadRequest("Feil i inputvalidering!");
 
         }
-/*
+        
+        
+////////// ----- HENT AKSJEBEHOLDNINGEN ----- //////////////////////////////////////////////////////////////////////////    
+
         [HttpGet]
-        public async Task<ActionResult> HentAlleAksjeneIBeholdningen(string brukernavn)
+        public async Task<ActionResult> HentHeleAksjebeholdningen(int id)
         {
-            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
-            {
-                return Unauthorized();
-            }
-            
-            List<Aksjebeholdning> alleAksjebeholdninger = await _db.HentAlleAksjeneIBeholdningen(brukernavn);
+
+            List<Aksjebeholdning> alleAksjebeholdninger = await _db.HentHeleAksjebeholdningen(id);
             return Ok(alleAksjebeholdninger);
         }
         
+        
+////////// ----- SLETT AKSJE ----- /////////////////////////////////////////////////////////////////////////////////////         
+        
         public async Task<ActionResult> SlettAksjeHvisDuSelgerAlt(int id)
         {
-            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
-            {
-                return Unauthorized();
-            }
             bool returOk = await _db.SlettAksjeHvisDuSelgerAlt(id);
             if (!returOk)
             {
@@ -74,7 +70,5 @@ namespace Aksjer.Controllers
             }
             return Ok("Aksjen i beholdningen slettet!");
         }
-        */
     }
-
 }

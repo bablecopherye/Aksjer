@@ -19,7 +19,6 @@ import {BrukerComponent} from "./components/bruker/bruker.component";
 import {BrukerEndreInfoModalComponent} from "./components/bruker-endre-info-modal/bruker-endre-info-modal.component";
 import {DiagramComponent} from "./components/diagram/diagram.component";
 import {SelgModalComponent} from "./components/selg-modal/selg-modal.component";
-import {LoggInnComponent} from "./components/logg-inn/logg-inn.component";
 
 // Services:
 import {AksjeService} from "./services/aksje.service";
@@ -38,7 +37,6 @@ import {ValideringService} from "./services/validering.service";
     AksjebeholdningComponent,
     BunnlinjeComponent,
     BrukerComponent,
-    LoggInnComponent,
     BrukerEndreInfoModalComponent,
     DiagramComponent,
     SelgModalComponent
@@ -51,7 +49,6 @@ import {ValideringService} from "./services/validering.service";
     NgApexchartsModule,
     RouterModule.forRoot([
       { path: '', component: HjemComponent, pathMatch: 'full' },
-      { path: 'logg-inn', component: LoggInnComponent },
       { path: 'aksjebeholdning', component: AksjebeholdningComponent },
       { path: 'ordreliste', component: OrdrelisteComponent },
       { path: 'bruker', component: BrukerComponent },

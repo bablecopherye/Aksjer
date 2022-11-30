@@ -6,9 +6,7 @@ namespace Aksjer.Models
 {
     public class Aksje
     {
-
-        [Key]
-        [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{2,20}$")]
+        [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{2,6}$")]
         public string Ticker { get; set; }
 
         [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{2,30}$")]
@@ -25,28 +23,5 @@ namespace Aksjer.Models
 
         [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{2,30}$")]
         public string Land { get; set; }
-/*
-        // Bruker Tabel
-        [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{2,20}$")]
-        public String Brukernavn { get; set; }
-
-        [RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$")]
-        public String Passord { get; set; }
-        public byte[] Salt { get; set; }
-
-        [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{2,30}$")]
-        public String Fornavn { get; set; }
-
-        [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{2,30}$")]
-        public String Etternavn { get; set; }
-
-        [RegularExpression(@"^[0-9]{1,20}$")]
-        public double Saldo { get; set; }
-
-        [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{2,30}$")]
-        public List<Ordre> Ordre { get; set; }
-
-        public Aksjebeholdning Aksjebeholdning { get; set; }
-        */
     }
 }

@@ -23,21 +23,19 @@ namespace Aksjer.DAL
             _log = log;
         }
         
-        public async Task<Bruker> HentEnBrukersInfo(string brukernavn)
+        public async Task<Bruker> HentBruker(int id)
         {
             try
             {
-                Brukere brukeren = await _db.Brukere.FindAsync(brukernavn);
+                Brukere brukeren = await _db.Brukere.FindAsync(id);
                 var hentetBruker = new Bruker()
                 
                 {
-                    Brukernavn = brukeren.Brukernavn,
-                    // Passord = brukeren.Passord,
-                    // Salt = brukeren.Salt,
+                    Id = brukeren.Id,
                     Fornavn = brukeren.Fornavn,
                     Etternavn = brukeren.Etternavn,
                     Saldo = brukeren.Saldo,
-                    //Aksjebeholdning = brukeren.Aksjebeholdning,
+                    // Aksjebeholdning = brukeren.Aksjebeholdning,
                     // Ordre = brukeren.Ordre
                 };
                 return hentetBruker;
@@ -51,20 +49,13 @@ namespace Aksjer.DAL
 
         public async Task<bool> EndreBruker(Bruker innNyBrukerinfo)
         {
-            Brukere funnetBruker = await _db.Brukere.FirstOrDefaultAsync(b => b.Brukernavn == innNyBrukerinfo.Brukernavn);
+            Brukere funnetBruker = await _db.Brukere.FirstOrDefaultAsync(b => b.Id == innNyBrukerinfo.Id);
             
             try
             {
-                var endreObjekt = await _db.Brukere.FindAsync(innNyBrukerinfo.Brukernavn);
+                var endreObjekt = await _db.Brukere.FindAsync(innNyBrukerinfo.Id);
 
-                endreObjekt.Brukernavn = innNyBrukerinfo.Brukernavn;
-                endreObjekt.Fornavn = innNyBrukerinfo.Fornavn;
-                endreObjekt.Etternavn = innNyBrukerinfo.Etternavn;
-
-                endreObjekt.Brukernavn = innNyBrukerinfo.Brukernavn;
-                byte[] hashAvNyttPassord = LagHash(innNyBrukerinfo.Passord, funnetBruker.Salt);
-                endreObjekt.Passord =  hashAvNyttPassord;
-                // endreObjekt.Salt = innNyBrukerinfo.Salt;
+                endreObjekt.Id = innNyBrukerinfo.Id;
                 endreObjekt.Fornavn = innNyBrukerinfo.Fornavn;
                 endreObjekt.Etternavn = innNyBrukerinfo.Etternavn;
                 endreObjekt.Saldo = innNyBrukerinfo.Saldo;
@@ -81,44 +72,6 @@ namespace Aksjer.DAL
             }
         }
 
-        public static byte[] LagHash(string passord, byte[] salt)
-        {
-            return KeyDerivation.Pbkdf2(
-                password: passord,
-                salt: salt,
-                prf: KeyDerivationPrf.HMACSHA512,
-                iterationCount: 1000,
-                numBytesRequested: 32);
-        }
-        
-        public static byte[] LagSalt()
-        {
-            var csp = new RNGCryptoServiceProvider();
-            var salt = new byte[24];
-            csp.GetBytes(salt);
-            return salt;
-        }
-
-        public async Task<bool> LoggInn(Bruker bruker)
-        {
-            try
-            {
-                Brukere funnetBruker = await _db.Brukere.FirstOrDefaultAsync(b => b.Brukernavn == bruker.Brukernavn);
-                // sjekk passordet
-                byte[] hash = LagHash(bruker.Passord, funnetBruker.Salt);
-                bool ok = hash.SequenceEqual(funnetBruker.Passord);
-                if (ok)
-                {
-                    return true;
-                }
-                return false;
-            }
-            catch (Exception e)
-            {
-                _log.LogInformation(e.Message);
-                return false;
-            }
-        }
         
         /*
         public async Task<bool> OpprettNyBruker(Bruker innBruker)

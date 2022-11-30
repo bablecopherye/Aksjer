@@ -30,7 +30,6 @@ namespace Aksjer.DAL
                 var nyRadIBeholdning = new Aksjebeholdninger();
 
                 nyRadIBeholdning.Id = innOrdre.Id;
-                nyRadIBeholdning.Bruker = innOrdre.Kunde;
                 nyRadIBeholdning.Aksje = innOrdre.Aksje;
                 nyRadIBeholdning.AntallAksjerEid = innOrdre.Antall;
                 nyRadIBeholdning.Kostpris = innOrdre.Pris;
@@ -49,25 +48,23 @@ namespace Aksjer.DAL
 
 
 ////////// ----- HENT ALLE ----- ///////////////////////////////////////////////////////////////////////////////////////         
-         /*
-         public async Task<List<Aksjebeholdning>> HentAlleAksjeneIBeholdningen(string brukernavn);
+         
+         public async Task<List<Aksjebeholdning>> HentHeleAksjebeholdningen();
          {
 
              try
              {
-                 List<Aksjebeholdning> alleBeholdninger = await _db.Aksjebeholdninger
-                     .Where(o => o.Bruker.Brukernavn == brukernavn)
+                 List<Aksjebeholdning> heleBeholdningen = await _db.Aksjebeholdninger
                      .Select(k => new Aksjebeholdning()
                      {
                          Id = k.Id,
                          Aksje = k.Aksje,
                          AntallAksjerEid = k.AntallAksjerEid,
-                         Bruker = k.Bruker,
                          Kostpris = k.Kostpris
                      })
                      .ToListAsync();
                  
-                 return alleBeholdninger;
+                 return heleBeholdningen;
              }
              catch (Exception e)
              {
@@ -75,7 +72,7 @@ namespace Aksjer.DAL
                  return null;
              }
          }
-         
+
 
 ////////// ----- SLETT VED SALG AV ALT ----- ///////////////////////////////////////////////////////////////////////////        
  
@@ -95,7 +92,7 @@ namespace Aksjer.DAL
              }
          }
       
-         /*
+         
      
 ////////// ----- ENDRE ANTALLET EIDE AKSJER ----- //////////////////////////////////////////////////////////////////////
      
@@ -105,6 +102,7 @@ namespace Aksjer.DAL
      
      Task<Aksje> HentEnAksje(string ticker);
      
-     */
+     
     }
+    
 }

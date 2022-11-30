@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 namespace Aksjer.Controllers
 {
     [Route("api/[controller]")]
+    [ApiController]
     public class BrukerController : ControllerBase
     {
         private readonly IBrukerRepository _db;
@@ -20,15 +21,18 @@ namespace Aksjer.Controllers
             _db = db;
             _log = log;
         }
+        
+        
+////////// ----- HENT BRUKER ----- /////////////////////////////////////////////////////////////////////////////////////    
 
         [HttpGet]
-        public async Task<ActionResult> HentEnBrukersInfo(string brukernavn)
+        public async Task<ActionResult> HentBruker(int Id)
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
             {
                 return Unauthorized();
             }
-            Bruker enBruker = await _db.HentEnBrukersInfo(brukernavn);
+            Bruker enBruker = await _db.HentBruker(Id);
             if (enBruker == null)
             {
                 _log.LogInformation("Fant ikke brukeren!");
@@ -36,7 +40,10 @@ namespace Aksjer.Controllers
             }
             return Ok(enBruker);
         }
-
+        
+        
+////////// ----- ENDRE BRUKER ----- ////////////////////////////////////////////////////////////////////////////////////
+        
         [HttpPut]
         public async Task<ActionResult> EndreBruker(Bruker brukerSomSkalEndres)
         {
@@ -56,30 +63,6 @@ namespace Aksjer.Controllers
             }
             _log.LogInformation("Feil i inputvalidering!");
             return BadRequest("Feil i inputvalidering!");
-        }
-
-        [HttpPost("LoggInn")]
-        public async Task<ActionResult> LoggInn(Bruker bruker)
-        {
-            if (ModelState.IsValid)
-            {
-                bool returnOk = await _db.LoggInn(bruker);
-                if (!returnOk)
-                {
-                    _log.LogInformation("Innloggingen feilet for bruker" + bruker.Brukernavn);
-                    HttpContext.Session.SetString(_loggetInn, "");
-                    return Ok(false);
-                }
-                HttpContext.Session.SetString(_loggetInn, "LoggetInn");
-                return Ok(true);
-            }
-            _log.LogInformation("Feil i inputvalidering!");
-            return BadRequest("Feil i inputvalidering på server!");
-        }
-
-        public void LoggUt()
-        {
-            HttpContext.Session.SetString(_loggetInn, "");
         }
     }
 }

@@ -15,30 +15,11 @@ namespace Aksjer.DAL
                 db.Database.EnsureDeleted();
                 db.Database.EnsureCreated();
                 
-                ////// ----- BRUKERE ----- /////////////////////////////////////////////////////////////////////////////
+                ////// ----- BRUKER ----- //////////////////////////////////////////////////////////////////////////////
                 
-                // Bruker 1: Hans Larsen
-                string passordHansLarsen = "Test11";
-                byte[] saltHansLarsen = BrukerRepository.LagSalt();
-                byte[] hashHansLarsen = BrukerRepository.LagHash(passordHansLarsen, saltHansLarsen);
-                
-                var brukerHansLarsen = new Brukere() 
-                    {Brukernavn = "tradergutt32", Passord = hashHansLarsen, Salt = saltHansLarsen, 
-                        Fornavn = "Hans", Etternavn = "Larsen", Saldo = 350400.00};
+                var brukerHansLarsen = new Brukere() { Fornavn = "Hans", Etternavn = "Larsen", Saldo = 350400.00 };
                 
                 db.Brukere.Add(brukerHansLarsen);
-                
-                // Bruker 2: Monica Ullensaker
-                string passordMonicaUllensaker = "passord";
-                byte[] saltMonicaUllensaker = BrukerRepository.LagSalt();
-                byte[] hashMonicaUllensaken = BrukerRepository.LagHash(passordMonicaUllensaker, saltMonicaUllensaker);
-                
-                var brukerMonicaUllensaker = new Brukere() 
-                {Brukernavn = "gulljenta60", Passord = hashMonicaUllensaken, Salt = saltMonicaUllensaker, 
-                    Fornavn = "Monica", Etternavn = "Ullensaker", Saldo = 9632.51};
-                
-                db.Brukere.Add(brukerMonicaUllensaker);
-                
 
                 ////// ----- AKSJER ----- //////////////////////////////////////////////////////////////////////////////
                 var aksjeApple = new Aksjer() { Ticker = "APPL", Aksjenavn = "Apple", Pris = 450.00, Antall = 15000000, Bors = "New York", Land = "USA"};
@@ -56,11 +37,16 @@ namespace Aksjer.DAL
                 db.Aksjer.Add(aksjeTesla);
                 
                 ////// ----- TIDLIGERE ORDRE ----- /////////////////////////////////////////////////////////////////////
-                var ordreHansLarsen1 = new Ordrer() { 
+                var ordre1 = new Ordrer() { 
                     Id = 1, Tidspunkt = new DateTime(2022, 07, 23, 11, 58, 31), 
-                    Type = "Kjøp", Antall = 400, Pris = 156000, Kunde = brukerHansLarsen};
+                    Type = "Kjøp", Antall = 400, Pris = 156000, Aksje = aksjeEquinor};
                 
-                db.Ordrer.Add(ordreHansLarsen1);
+                var ordre2 = new Ordrer() { 
+                    Id = 2, Tidspunkt = new DateTime(2022, 07, 22, 22, 32, 40), 
+                    Type = "Kjøp", Antall = 1000, Pris = 520000, Aksje = aksjeApple};
+                
+                db.Ordrer.Add(ordre1);
+                db.Ordrer.Add(ordre2);
                 
                 ////// ----- AKSJEBEHOLDNING ----- /////////////////////////////////////////////////////////////////////
                 
