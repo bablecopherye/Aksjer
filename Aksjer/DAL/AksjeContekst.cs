@@ -1,5 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 using Aksjer.DAL;
+using Castle.Components.DictionaryAdapter;
 
 
 namespace Aksjer.DAL
@@ -8,8 +10,7 @@ namespace Aksjer.DAL
 ////////// ----- AKSJER ----- //////////////////////////////////////////////////////////////////////////////////////////    
     public class Aksjer
     {
-        //[Key]
-        //[DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int Id { get; set; }
         public string Ticker { get; set; }
         public string Aksjenavn { get; set; }
         public double Pris { get; set; }

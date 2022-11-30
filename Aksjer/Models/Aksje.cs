@@ -6,6 +6,8 @@ namespace Aksjer.Models
 {
     public class Aksje
     {
+        public int Id { get; set; }
+        
         [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{2,6}$")]
         public string Ticker { get; set; }
 

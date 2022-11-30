@@ -26,12 +26,12 @@ namespace Aksjer.Controllers
 ////////// ----- NY ORDRE ----- ////////////////////////////////////////////////////////////////////////////////////////        
         
         [HttpPost]
-        public async Task<ActionResult> OpprettNyOrdre(Ordre innOrdre, double brukersSaldo)
+        public async Task<ActionResult> OpprettNyOrdre(Ordrer innOrdre)
         {
             
             if (ModelState.IsValid)
             {
-                bool returOK = await _db.NyOrdre(innOrdre, brukersSaldo);
+                bool returOK = await _db.LagreNyOrdre(innOrdre);
                 if (!returOK)
                 {
                     _log.LogInformation("Orderen ble ikke gjennomført!");
@@ -50,7 +50,7 @@ namespace Aksjer.Controllers
         [HttpGet]
         public async Task<ActionResult> HentAlleOrdre()
         {
-            List<Ordre> alleOrdre = await _db.HentAlleOrdre();
+            List<Ordrer> alleOrdre = await _db.HentAlleOrdre();
             return Ok(alleOrdre);
         }
         

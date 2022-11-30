@@ -6,7 +6,7 @@ namespace Aksjer.DAL
 {
     public interface IOrdreRepository
     {
-        Task<bool> NyOrdre(Ordre innOrdre, double brukersSaldo);
-        Task<List<Ordre>> HentAlleOrdre();
+        Task<bool> LagreNyOrdre(Ordrer innOrdre);
+        Task<List<Ordrer>> HentAlleOrdre();
     }
 }

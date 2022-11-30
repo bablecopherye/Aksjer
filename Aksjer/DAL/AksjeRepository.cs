@@ -32,7 +32,6 @@ namespace Aksjer.DAL
                     Ticker = k.Ticker,
                     Aksjenavn = k.Aksjenavn,
                     Pris = k.Pris,
-                    Antall = k.Antall,
                     Bors = k.Bors,
                     Land = k.Land,
                 }).ToListAsync(); 

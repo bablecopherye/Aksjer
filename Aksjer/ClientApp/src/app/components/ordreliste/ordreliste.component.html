@@ -3,16 +3,16 @@
 
     <br/>
 
-    <p>Under finner du en liste over alle kjøp og salg av aksjer som er blitt gjort med denne kontoen. Listen er sortert
-        i synkende rekkefølge, med den nyligste ordren øverst og den eldste ordren nederst.</p>
-
-    <p>Ønsker du å kjøpe flere aksjer kan du navigere til "Aksjer"-siden ved hjelp av navigasjonsmenyen på toppen.</p>
+    <p>
+        Under finner du en liste over alle kjøp og salg av aksjer som er blitt gjort med denne kontoen.
+        Ønsker du å kjøpe flere aksjer kan du navigere til "Aksjer"-siden ved hjelp av navigasjonsmenyen på toppen.
+    </p>
 
     <br/>
 
-    <p *ngIf="!alleOrdreTilEnBruker"><em>Laster inn...</em></p>
+    <p *ngIf="!alleOrdre"><em>Laster inn...</em></p>
 
-    <table class='table table-light table-striped table-hover' aria-labelledby="tableLabel" *ngIf="alleOrdreTilEnBruker">
+    <table class='table table-light table-striped table-hover' aria-labelledby="tableLabel" *ngIf="alleOrdre">
         <thead>
         <tr>
             <th>Aksjenavn</th>
@@ -23,18 +23,16 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let ordre of alleOrdreTilEnBruker">
-            <td>{{ ordre.aksjenavn }}</td>
-            <td>{{ ordre.aksjenavn }}</td>
-            <td>{{ ordre.antallAksjerKjoptEllerSolgt }}</td>
+        <tr *ngFor="let ordre of alleOrdre">
+            <td>{{ ordre.aksje }}</td>
+            <td>{{ ordre.type }}</td>
+            <td>{{ ordre.antall }}</td>
+            <td>{{ ordre.pris }}</td>
             <td>
                 <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + 'a/a4/Flag_of_the_United_States.svg'" class="me-2" style="width: 20px" alt="flagg"/>
-                {{ ordre.boers }}
+                {{ ordre.aksje.bors }}
             </td>
-            <td>ledig felt</td>
         </tr>
         </tbody>
     </table>
-
-    <!-- putt inn: landets.flagg eller liknende der andre del av lenken nå står -->
 </div>

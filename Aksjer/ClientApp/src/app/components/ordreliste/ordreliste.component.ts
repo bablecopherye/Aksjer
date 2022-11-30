@@ -15,26 +15,12 @@ export class OrdrelisteComponent implements OnInit {
     ) {}
 
     public alleOrdre: Array<IOrdre> = [];
-    public feilmelding: string = "";
+    public feilmelding: string = "Klarte ikke hente ordrene";
     public bruker: IBruker;
-    public id: number = this.bruker.id;
 
     ngOnInit() {
         this.hentAlleOrdre();
     }
-
-    /*
-    hentBrukernavn() {
-        this.feilmelding = "Serverfeil";
-        this.brukerService.hentBruker()
-            .subscribe({
-                next: (data: IBruker) => this.bruker = data,
-                error: () => console.error(this.feilmelding),
-                complete: () => console.info('Bruker er hentet')
-            })
-    }
-    
-     */
 
     hentAlleOrdre() {
         this.feilmelding = "Serverfeil";
@@ -42,7 +28,7 @@ export class OrdrelisteComponent implements OnInit {
             .subscribe({
                 next: (data: IOrdre[]) => this.alleOrdre = data,
                 error: () => console.error(this.feilmelding),
-                complete: () => console.info('Alle ordre til en bruker er hentet fra server til klient')
+                complete: () => console.info('Alle ordre er hentet fra server til klient')
             })
     }
 }

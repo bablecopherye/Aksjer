@@ -15,11 +15,14 @@ export class OrdreService {
     private url_hent: string = "api/Ordre/HentAlleOrdre"
     private url_ny: string = "api/Ordre/HentAlleOrdre"
 
+    /*
     OpprettNyOrdre(innOrdre, brukersSaldo) : Observable<IOrdre>{
 
         return this.http.post<IOrdre>(this.url_ny, )
             .pipe(catchError(this.feilhaandtering));
     }
+    
+     */
 
     HentAlleOrdre() : Observable<IOrdre[]>{
 
