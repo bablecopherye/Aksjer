@@ -8,6 +8,5 @@ namespace Aksjer.DAL
     {
         Task<List<Aksje>> HentAlleAksjene();
         Task<Aksje> HentEnAksje(string ticker);
-        Task<bool> EndreAntalletTilgjengeligeAksjerIEnAksje(Aksje endreAksje);
     }
 }

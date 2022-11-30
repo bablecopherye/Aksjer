@@ -59,7 +59,6 @@ namespace Aksjer.DAL
                     Ticker = enAksje.Ticker,
                     Aksjenavn = enAksje.Aksjenavn,
                     Pris = enAksje.Pris,
-                    Antall = enAksje.Antall,
                     Bors = enAksje.Bors,
                     Land = enAksje.Land,
                     // Her trenger vi å koble en aksje til en bruker
@@ -94,81 +93,4 @@ namespace Aksjer.DAL
         }
     }
 }
-        
-        /*
-                if (endreAksjenSittAntall.Bruker.Brukernavn != endreAksje.Brukernavn)
-                {
-                    var sjekkBruker = _db.Brukere.Find(endreAksje.Fornavn);
-                    if (sjekkBruker == null)
-                    {
-                        var nyBrukerRad = new Bruker();
-                        nyBrukerRad.Brukernavn = endreAksje.Brukernavn;
-                        nyBrukerRad.Passord = endreAksje.Passord;
-                        nyBrukerRad.Fornavn = endreAksje.Fornavn;
-                        nyBrukerRad.Etternavn = endreAksje.Etternavn;
-                        nyBrukerRad.Saldo = endreAksje.Saldo;
-                        endreObjekt.Bruker = nyBrukerRad;
-                    }
-                    else
-                    {
-                        endreObjekt.Bruker = sjekkBruker;
-                    }
-                }
-
-                endreObjekt.Ticker = endreAksje.Ticker;
-                endreObjekt.AksjeNavn = endreAksje.Aksjenavn;
-                endreObjekt.Pris = endreAksje.Pris;
-                endreObjekt.Antall = endreAksje.Antall;
-                endreAksje.Bors = endreAksje.Bors;
-                endreAksje.Land endreAksje.Land;
-                */
-        
-        /*
-        
-        */
-        
-        /*
-        
-        */
-        /*
-
-        public static byte[] LagHash(string passord, byte[] salt)
-        {
-            return KeyDerivation.Pbkdf2(
-                                password: passord,
-                                salt: salt,
-                                prf: KeyDerivationPrf.HMACSHA512,
-                                iterationCount: 1000,
-            numBytesRequested: 32);
-        }
-
-        public static byte[] LagSalt()
-        {
-            var csp = new RNGCryptoServiceProvider();
-            var salt = new byte[24];
-            csp.GetBytes(salt);
-            return salt;
-        }
-
-        public async Task<bool> LoggInn(Bruker bruker)
-        {
-            try
-            {
-                Brukere funnetBruker = await _db.Brukere.FirstOrDefaultAsync(b => b.Brukernavn == bruker.Brukernavn);
-                // sjekk passordet
-                byte[] hash = LagHash(bruker.Passord, funnetBruker.Salt);
-                bool ok = hash.SequenceEqual(funnetBruker.Passord);
-                if (ok)
-                {
-                    return true;
-                }
-                return false;
-            }
-            catch (Exception e)
-            {
-                _log.LogInformation(e.Message);
-                return false;
-            }
-        }
-        */
 

@@ -1,7 +1,6 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Aksjer.DAL;
-using Aksjer.Models;
+
 
 namespace Aksjer.DAL
 {
@@ -14,7 +13,6 @@ namespace Aksjer.DAL
         public string Ticker { get; set; }
         public string Aksjenavn { get; set; }
         public double Pris { get; set; }
-        public int Antall { get; set; }
         public string Bors { get; set; }
         public string Land { get; set; }
     }
@@ -42,7 +40,6 @@ namespace Aksjer.DAL
     public class Ordrer
     {
         public int Id { get; set; }
-        public DateTime Tidspunkt { get; set; }
         public virtual Aksjer Aksje { get; set; }
         public string Type { get; set; }
         public int Antall { get; set; }

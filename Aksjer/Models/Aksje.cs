@@ -15,9 +15,6 @@ namespace Aksjer.Models
         [RegularExpression(@"^[0-9.,]{1,20}$")]
         public double Pris { get; set; }
 
-        [RegularExpression(@"^[0-9]{1,20}$")]
-        public int Antall { get; set; }
-
         [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{2,30}$")]
         public string Bors { get; set; }
 

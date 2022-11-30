@@ -97,7 +97,6 @@ namespace Aksjer.DAL
                 
                     // Den nye ordreraden får inn data
                     nyOrdreRad.Id = innOrdre.Id;
-                    nyOrdreRad.Tidspunkt = innOrdre.Tidspunkt;
                     nyOrdreRad.Aksje = innOrdre.Aksje;
                     nyOrdreRad.Type = innOrdre.Type;
                     nyOrdreRad.Antall = innOrdre.Antall; 
@@ -145,8 +144,7 @@ namespace Aksjer.DAL
                 List<Ordre> alleOrdre = await _db.Ordrer
                     .Select(k => new Ordre() 
                     { 
-                        Id = k.Id, 
-                        Tidspunkt = k.Tidspunkt, 
+                        Id = k.Id,
                         Aksje = k.Aksje,
                         Type = k.Type, 
                         Antall = k.Antall, 

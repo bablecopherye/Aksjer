@@ -7,7 +7,6 @@ namespace Aksjer.Models
     public class Ordre
     {
         public int Id { get; set; }
-        public DateTime Tidspunkt { get; set; }
         public virtual Aksje Aksje { get; set; }
 
         [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{4,4}$")] 

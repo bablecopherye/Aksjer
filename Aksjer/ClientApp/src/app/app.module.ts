@@ -15,8 +15,6 @@ import {NavMenyComponent} from "./components/nav-meny/nav-meny.component";
 import {OrdrelisteComponent} from "./components/ordreliste/ordreliste.component";
 import {AksjebeholdningComponent} from "./components/aksjebeholdning/aksjebeholdning.component";
 import {BunnlinjeComponent} from "./components/bunnlinje/bunnlinje.component";
-import {BrukerComponent} from "./components/bruker/bruker.component";
-import {BrukerEndreInfoModalComponent} from "./components/bruker-endre-info-modal/bruker-endre-info-modal.component";
 import {DiagramComponent} from "./components/diagram/diagram.component";
 import {SelgModalComponent} from "./components/selg-modal/selg-modal.component";
 
@@ -36,8 +34,6 @@ import {ValideringService} from "./services/validering.service";
     OrdrelisteComponent,
     AksjebeholdningComponent,
     BunnlinjeComponent,
-    BrukerComponent,
-    BrukerEndreInfoModalComponent,
     DiagramComponent,
     SelgModalComponent
   ],
@@ -51,7 +47,6 @@ import {ValideringService} from "./services/validering.service";
       { path: '', component: HjemComponent, pathMatch: 'full' },
       { path: 'aksjebeholdning', component: AksjebeholdningComponent },
       { path: 'ordreliste', component: OrdrelisteComponent },
-      { path: 'bruker', component: BrukerComponent },
     ])
   ],
   providers: [AksjeService, HandleService, OrdreService, BrukerService, ValideringService],
