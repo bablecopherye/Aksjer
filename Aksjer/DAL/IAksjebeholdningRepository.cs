@@ -9,7 +9,8 @@ namespace Aksjer.DAL
         Task<bool> LagreNyAksjeTilBeholdningen(Ordrer innOrdre);
         
         /*
-        Task<List<Aksjebeholdning>> HentAlleAksjeneIBeholdningen(int id);
+        Task<List<Aksjebeholdninger>> HentAksjebeholdningen();
+        
         Task<bool> SlettAksjeHvisDuSelgerAlt(int id);
         Task<Aksje> HentEnAksje(string ticker);
         Task<bool> EndreAntalletEideAksjerIEnAksje(Aksje endreAksje);

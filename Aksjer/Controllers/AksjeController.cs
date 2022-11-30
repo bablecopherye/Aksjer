@@ -27,14 +27,14 @@ namespace Aksjer.Controllers
         [HttpGet]
         public async Task<ActionResult> HentAlleAksjene()
         {
-            List<Aksje> alleAksjer = await _db.HentAlleAksjene();
+            List<DAL.Aksjer> alleAksjer = await _db.HentAlleAksjene();
             return Ok(alleAksjer);
         }
         
 
 ////////// ----- HENT ÉN AKSJE ----- ///////////////////////////////////////////////////////////////////////////////////      
 
-        [HttpGet]
+        [HttpGet("/hentenaksje")]
         public async Task<ActionResult> HentEnAksje(string ticker)
         {
             Aksje enAksje = await _db.HentEnAksje(ticker);

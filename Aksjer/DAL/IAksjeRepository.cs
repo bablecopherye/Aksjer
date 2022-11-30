@@ -6,7 +6,7 @@ namespace Aksjer.DAL
 {
     public interface IAksjeRepository
     {
-        Task<List<Aksje>> HentAlleAksjene();
+        Task<List<Aksjer>> HentAlleAksjene();
         Task<Aksje> HentEnAksje(string ticker);
     }
 }

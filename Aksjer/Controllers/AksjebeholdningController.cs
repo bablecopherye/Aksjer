@@ -45,31 +45,31 @@ namespace Aksjer.Controllers
             return BadRequest("Feil i inputvalidering!");
 
         }
-        /*
         
+        /*
 ////////// ----- HENT AKSJEBEHOLDNINGEN ----- //////////////////////////////////////////////////////////////////////////    
 
-        [HttpGet]
-        public async Task<ActionResult> HentHeleAksjebeholdningen(int id)
-        {
+       [HttpGet]
+       public async Task<ActionResult> HentAksjebeholdningen()
+       {
 
-            List<Aksjebeholdning> alleAksjebeholdninger = await _db.HentHeleAksjebeholdningen(id);
-            return Ok(alleAksjebeholdninger);
-        }
-        
-        
+           List<Aksjebeholdninger> alleAksjerIBeholdningen = await _db.HentAksjebeholdningen();
+           return Ok(alleAksjerIBeholdningen);
+       }
+       
+   
 ////////// ----- SLETT AKSJE ----- /////////////////////////////////////////////////////////////////////////////////////         
-        
-        public async Task<ActionResult> SlettAksjeHvisDuSelgerAlt(int id)
-        {
-            bool returOk = await _db.SlettAksjeHvisDuSelgerAlt(id);
-            if (!returOk)
-            {
-                _log.LogInformation("Aksjen i beholdningen ble ikke slettet!");
-                return NotFound("Aksjen i beholdningen ble ikke slettet!");
-            }
-            return Ok("Aksjen i beholdningen slettet!");
-        }
-        */
+       
+       public async Task<ActionResult> SlettAksjeHvisDuSelgerAlt(int id)
+       {
+           bool returOk = await _db.SlettAksjeHvisDuSelgerAlt(id);
+           if (!returOk)
+           {
+               _log.LogInformation("Aksjen i beholdningen ble ikke slettet!");
+               return NotFound("Aksjen i beholdningen ble ikke slettet!");
+           }
+           return Ok("Aksjen i beholdningen slettet!");
+       }
+       */
     }
 }

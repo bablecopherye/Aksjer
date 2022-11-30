@@ -3,42 +3,42 @@
         <h4 class="modal-title" id="modal-basic-title">Kjøp aksjer</h4>
     </div>
     <div class="modal-body">
-        <form [formGroup]="kjopeskjema" (ngSubmit)="vedSubmit()">
+        <form>
             <div class="form-group row">
                 <label for="aksje" class="col-sm-3 col-form-label"><strong>Aksje</strong></label>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control-plaintext" id="aksje" value={{aksjenavn}} formControlName="aksjenavn" readonly disabled>
+                    <input type="text" class="form-control-plaintext" id="aksje" value="Aksjenavn" readonly disabled>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="ordretype" class="col-sm-3 col-form-label"><strong>Type</strong></label>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control-plaintext" id="ordretype" value="Kjøp" formControlName="kjøp" readonly disabled>
+                    <input type="text" class="form-control-plaintext" id="ordretype" value="Kjøp" readonly disabled>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="antall" class="col-sm-3 col-form-label"><strong>Antall</strong></label>
                 <div class="col-sm-7">
-                    <input type="number" class="form-control" id="antall" formControlName="antall" placeholder="Oppgi antall aksjer">
+                    <input type="number" class="form-control" id="antall" placeholder="Oppgi antall aksjer">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="prisperaksje" class="col-sm-3 col-form-label"><strong>Kjøpepris</strong></label>
                 <div class="col-sm-7">
-                    <input type="number" class="form-control" id="prisperaksje" formControlName="prisperaksje" placeholder="Oppgi pris per aksje">
+                    <input type="number" class="form-control" id="prisperaksje" placeholder="Oppgi pris per aksje">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="ordreverdi" class="col-sm-3 col-form-label"><strong>Ordreverdi</strong></label>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control-plaintext" id="ordreverdi" placeholder="kostnad" formControlName="kostnad" readonly disabled>
+                    <input type="text" class="form-control-plaintext" id="ordreverdi" placeholder="kostnad" readonly disabled>
                 </div>
             </div>
         </form>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-outline-danger" (click)="modal.close()">Avbryt</button>
-        <button type="button" class="btn btn-success" (click)="modal.submit()">Kjøp</button>
+        <button type="button" class="btn btn-success" (click)="modal.close()">Kjøp</button>
     </div>
 </ng-template>
 

@@ -38,10 +38,8 @@
         <thead>
         <tr>
             <th class="prioritet-1">Navn</th>
-            <th class="prioritet-1">Ant.</th>
-            <th class="prioritet-2">Kostpris</th>
-            <th class="prioritet-1">Verdi</th>
-            <th class="prioritet-2">Profitt</th>
+            <th class="prioritet-2">Ticker</th>
+            <th class="prioritet-1">Pris</th>
             <th class="prioritet-3">Børs</th>
             <th class="prioritet-3">Kjøp/Selg</th>
         </tr>
@@ -49,13 +47,11 @@
         <tbody>
         <tr *ngFor="let aksje of alleAksjer">
             <td class="prioritet-1">{{ aksje.aksjenavn }}</td>
-            <td class="prioritet-1">{{ aksje.antall }}</td>
-            <td class="prioritet-2">{{ aksje.pris }}</td>
-            <td class="prioritet-1">{{ aksje.pris }}</td>
+            <td class="prioritet-1">{{ aksje.ticker }}</td>
             <td class="prioritet-2">{{ aksje.pris }}</td>
             <td class="prioritet-3">
                 <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + 'a/a4/Flag_of_the_United_States.svg'" class="me-2" style="width: 20px" alt="flagg"/>
-                {{ aksje.fornavn }}
+                {{ aksje.bors }}
             </td>
             <td class="prioritet-3" id="kjop-selg-knapper-i-tabellfelt">
                 <handle-modal class="prioritet-3"></handle-modal>

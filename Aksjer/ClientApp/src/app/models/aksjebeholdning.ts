@@ -1,6 +1,6 @@
 import {Aksje} from "./aksje";
 
-export interface IAksjebeholdning {
+export interface Aksjebeholdning {
     id: number,
     aksje: Aksje,
     antall: number,

@@ -23,11 +23,11 @@ namespace Aksjer.DAL
         
 ////////// ----- HENT ALLE ----- ///////////////////////////////////////////////////////////////////////////////////////
         
-        public async Task<List<Aksje>> HentAlleAksjene()
+        public async Task<List<Aksjer>> HentAlleAksjene()
         {
             try
             {
-                List<Aksje> alleAksjer = await _db.Aksjer.Select(k => new Aksje
+                List<Aksjer> alleAksjer = await _db.Aksjer.Select(k => new Aksjer
                 {
                     Ticker = k.Ticker,
                     Aksjenavn = k.Aksjenavn,

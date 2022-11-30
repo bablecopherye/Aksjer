@@ -49,13 +49,13 @@ namespace Aksjer.DAL
 /*
 ////////// ----- HENT ALLE ----- ///////////////////////////////////////////////////////////////////////////////////////         
          
-         public async Task<List<Aksjebeholdning>> HentHeleAksjebeholdningen();
+         public async Task<List<Aksjebeholdninger>> HentAksjebeholdningen();
          {
 
              try
              {
-                 List<Aksjebeholdning> heleBeholdningen = await _db.Aksjebeholdninger
-                     .Select(k => new Aksjebeholdning()
+                 List<Aksjebeholdninger> heleBeholdningen = await _db.Aksjebeholdninger
+                     .Select(k => new Aksjebeholdninger()
                      {
                          Id = k.Id,
                          Aksje = k.Aksje,
@@ -73,7 +73,7 @@ namespace Aksjer.DAL
              }
          }
 
-
+/*
 ////////// ----- SLETT VED SALG AV ALT ----- ///////////////////////////////////////////////////////////////////////////        
  
          public async Task<bool> SlettAksjeHvisDuSelgerAlt(int id);
